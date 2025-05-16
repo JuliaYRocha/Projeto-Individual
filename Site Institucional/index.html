@@ -3,62 +3,141 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jurubeba Blues | Início </title>
-    <link rel="stylesheet" href="style.css">
+    
+
+    <title>Jurubeba Blues | Início</title>
+
+    <link rel="stylesheet" href="style-index.css">
+    
 </head>
 
 <body>
 
-    <header>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+</style>
 
-        <div class="navbar" id="div_nav">
-                <img src="assets/logo.png" alt="">
+<div class="header">
+  <div class="logo">
+    Jurubeba Blues
+  </div>
+  <div class="navbar">
+  <div class="inicio">
+    <a href="index.html" class="direcionamentos">Início</a>
+  </div>
+    <a href="sobre.html" class="direcionamentos">Sobre</a>
+    <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
+    <a href="quiz.html" class="direcionamentos">Quiz</a>
+    <!-- <a href="" class="direcionamentos">Dashboard | Músicas</a> -->
+    <div class="login">    
+    <a href="login.html" class="direcionamentos">Login</a>
+    <a href="cadastro.html" class="direcionamentos">Cadastro</a>
+    </div>
+  </div>
+</div>
 
-                <button class="btn">Início</button>
-                <button class="btn">Sobre</button>
-                <button class="btn">Quiz</button>
-                <button >Acervo</button>
-                
 
-                    <button>Login</button>
-                    <button>Cadastro</button>
+  <main class="main">
+    <a class="titulo">O meu universo musical para você!</a>
+    <a class="subtitulo"><i>“A música é a arte de manifestar os diversos <br>afetos da nossa Alma mediante o som.” <br>
+              Paschoal Bona</i></a><br>
+              <a class="direcionamentos" href="sobre.html">Saiba Mais</a>
+      
+      <br><br><br>
+<!-- 
+      <div class="container-musica"> -->
 
-                </div>
-            </div>
+        <p href="" class="topico">
+          Veja aqui as 5 músicas mais ouvidas! 
+        </p>    
+        <br>
+        <a href="" class="musica">
+          Musica 1
+        </a> <br>
+              <a href="" class="musica">
+          Musica 2
+        </a><br>
+              <a href="" class="musica">
+          Musica 3
+        </a> <br>
+              <a href="" class="musica">
+          Musica 4
+        </a><br>
+              <a href="" class="musica">
+          Musica 5
+        </a><br>
+  
+        <!-- Math.random para randomizar a música que será tocada no frame a cada reload da pagina -->
+  
+        <!-- Não funciona porque estou usando file://  -->
+  
+      <!-- <iframe class="frame" width="650" height="400" 
+        src="https://www.youtube.com/embed/wccRif2DaGs?si=uPVKmx7IpBQx7owy&amp;controls=0" 
+        title="Vienna - Billy Joel" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>  LEMBRAR DE PEDIR AJUDA --> 
+      <!-- </div> -->
 
+      <br><br><br><br>
+
+
+      <p class="topico">
+        Identidade e Cultura
+      </p>
+
+      <div class="card">
+
+        <div class="missao">
+          <p class="titulo-card">
+            Missão
+            </p>
+            <p class="texto-card">
+              A missão do Jurubeba Blues é espalhar a música e contagiar todo mundo com melodias incríveis, para tocar o coração e agradar cada indivíduo.
+            </p>
         </div>
-    </header>
 
-    <main class="main">
-        <section>
+        <div class="valores">
+          <p class="titulo-card">
+            Valores
+            </p>
+            <p class="texto-card">
+              O Jurubeba Blues valoriza a expressão da pessoa como indivíduo na sociedade, sobre ter o poder de ser quem você é, e se identificar com músicas idênticas a você, indivíduo.
+            </p> 
+        </div>
 
-            <div class="carousel" id="div_carousel">
+          <div class="objetivo">
+            <p class="titulo-card">
+              Objetivo
+              </p>
+              <p class="texto-card">
+                O objetivo do Jurubeba Blues é fornecer meios para as pessoas se expressarem e se sentirem livres, através das músicas.
+              </p>
+          </div>
 
-
-            </div>
-        </section>
-        <section>
-            <div class="title" id="div_title"></div>
-            O meu universo musical para você!
-
-            <div class="subtitle" id="div_subtitle"></div>
-            “A música é a arte de manifestar os diversos afetos da nossa Alma mediante o som.”
-            Paschoal Bona
-
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/gQRtAnPL6HM?si=dXYYjx9e2VfcC6w1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-            <div class="celular" id="div_celular">
-            </div>
-
-        </section>
-
+      </div>
+      
+      <br><br><br><br> 
     </main>
+
+<!-- esticar o preto do fade -->
+
+
     <footer>
-        <div class="footer" id="div_footer"></div>
+      <p class="contato">
+
+        <div class="titulo-footer">
+          Jurubeba Blues<br>
+        </div>
+        <div class="conteudo-footer">
+          Contatos: <br>
+          • julia.rocha@sptech.school <br>
+          • (11) 4002-8922 <br>
+          • @jurubebablues <br><br>
+        </p>
+        </div>
 
     </footer>
-
-</body>
-
-</html>
