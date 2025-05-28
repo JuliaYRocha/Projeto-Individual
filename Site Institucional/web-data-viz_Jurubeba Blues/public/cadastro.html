@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <title>Jurubeba Blues | Cadastro</title>
+    <script src="./js/sessao.js"></script>
+    <link rel="stylesheet" href="./css/style-cadastro.css">
+    
+</head>
+
+<body>
+
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+</style>
+
+<div class="header">
+  <div class="logo">
+    Jurubeba Blues
+  </div>
+  <div class="navbar">
+      <a href="index.html" class="direcionamentos">Início</a>
+      <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
+      <a href="quiz.html" class="direcionamentos">Quiz</a>
+      <div class="login">    
+          <a href="login.html" class="direcionamentos">Login</a>
+          <div class="cadastro-">
+              <a href="cadastro.html" class="direcionamentos">Cadastro</a>
+            </div>
+    </div>
+  </div>
+</div>
+
+
+  <main class="main">
+    <a class="titulo">É novo por aqui? CADASTRE-SE! </a>
+
+        <div class="card-cadastro">
+          <br>  
+            <a class="topico">
+                Preencha todos os campos abaixo:
+            </a>
+            <a class="item">
+                Nome de usuário:<br>
+                <input class="input" type="text" id="input_nome">
+            </a>
+            <a class="item">
+                E-mail:<br>
+                <input class="input" type="text" id="input_email"> 
+
+            </a>
+            <a class="item">
+                Senha:<br>
+                <input class="input" type="text" id="input_senha">
+                
+            </a>
+            <a class="item">
+                Confirmação de senha:<br>
+                <input class="input" type="text" id="input_confirmacao">
+                
+            </a>
+<br>
+            <a class="botao-cadastro" onclick="cadastrar()">Cadastre-se</a>
+<br> 
+        </div>
+        <br><br><br>
+        <footer>
+          <p class="contato">
+    
+            <div class="titulo-footer">
+              Jurubeba Blues<br>
+            </div>
+            <div class="conteudo-footer">
+              Contatos: <br>
+              • julia.rocha@sptech.school <br>
+              • (11) 4002-8922 <br>
+              • @jurubebablues <br><br>
+            </p>
+            </div>
+    
+        </footer>
+
+    </main>
+    
+    <script>
+
+  // Array para armazenar empresas cadastradas para validação de código de ativação 
+  let listaUsuariosCadastrados = [];
+
+  function cadastrar() {
+    aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = input_nome.value;
+    // console.log(input_nome.value  )
+    // console.log(nomeVar);
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+    var confirmacaoSenhaVar = input_confirmacao.value;
+
+    // Verificando se há algum campo em branco
+   if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" 
+    ) {
+      // cardErro.style.display = "block";
+      // mensagem_erro.innerHTML =
+      //   "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false; } // Problematic brace here
+    }
+
+    // // Verificando se o código de ativação é de alguma empresa cadastrada
+    // for (let i = 0; i < listaUsuariosCadastrados.length; i++) {
+    //   if (listaUsuariosCadastrados[i].codigo_ativacao == musicaFav) {
+    //     idEmpresaVincular = listaUsuariosCadastrados[i].id
+    //     console.log("Código de ativação válido.");
+    //     break;
+    //   } else {
+    //     cardErro.style.display = "block";
+    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+    //     finalizarAguardar();
+    //   }
+    // }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        // if (resposta.ok) {
+        //   cardErro.style.display = "block";
+
+        //   mensagem_erro.innerHTML =
+        //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        // } else {
+        //   throw "Houve um erro ao tentar realizar o cadastro!";
+        // }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+
+  
+
+  // Listando empresas cadastradas 
+  // function listar() {
+  //   fetch("/empresas/listar", {
+  //     method: "GET",
+  //   })
+  //     .then(function (resposta) {
+  //       resposta.json().then((empresas) => {
+  //         empresas.forEach((empresa) => {
+  //           listaUsuariosCadastrados.push(empresa);
+
+  //           console.log("listaUsuariosCadastrados")
+  //           console.log(listaUsuariosCadastrados[0].codigo_ativacao)
+  //         });
+  //       });
+  //     })
+  //     .catch(function (resposta) {
+  //       console.log(`#ERRO: ${resposta}`);
+  //     });
+  // }
+
+</script>
