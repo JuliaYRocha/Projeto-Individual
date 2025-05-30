@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-size: 18px;
+    font-size: 20px;
     color: #fff;
     font-family: poppins, sans-serif; 
     /* height: 100vh; */
@@ -102,7 +102,7 @@ body {
 .navbar .direcionamentos {
     width: 40%;
     height: 5%;
-    background-color: var(--bordoescuro);
+    background-color: transparent;
     border-radius: 30px;
     padding: 0.5vh 2vh;
     text-decoration: none;
@@ -113,7 +113,7 @@ body {
     font-weight: bolder;
     width: 35%;
     height: 3%;
-    background-color: var(--bordoescuro);
+    background-color: transparent   ;
     border-radius: 30px;
     padding: 0.5vh 2vh;
     text-decoration: none;
@@ -130,7 +130,7 @@ body {
     text-decoration: none;
     white-space: nowrap;
     font-size: large;
-    color: #fff;
+    color: var(--branco);
 }
 
 
@@ -228,11 +228,60 @@ body {
     padding-right: 2px;
 }
 
+.body-musicas{
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+}
+
+
+.container-significados .significados{
+    display: flex;
+    width: 650px;
+    height: 200px;
+
+    margin-right: 10%;
+    gap: 40px;
+
+    border: solid 2px #1F0000;
+    border-radius: 30px;
+    
+    background-color: #eae7db;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+
+    font-size: 16px;
+    font-weight: 500px;
+    color: var(--bordoescuro);
+    padding: 3%;
+}
+
+.container-significados {
+    gap: 30px;
+}
+
 .container-musicas {
     display: flex;
     flex-direction: row;
     width: 650px;
     height: 1250px;
+
+    margin-left: 5%;
+    /* padding-top: 5%; */
+    gap: 30px;
+
+    border: solid 2px #1F0000;
+    border-radius: 30px;
+    
+    background-color: #eae7db;
+}
+
+.container-musicas-sobre {
+    display: flex;
+    flex-direction: row;
+    width: 650px;
+    height: 100%;
 
     margin-left: 10%;
     /* padding-top: 5%; */
@@ -242,6 +291,20 @@ body {
     border-radius: 30px;
     
     background-color: #eae7db;
+}
+
+.container-musicas-sobre .texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 20px;
+    font-weight: 500;
+    color: #360000;
+
+    padding: 20px;
+
 }
 
 

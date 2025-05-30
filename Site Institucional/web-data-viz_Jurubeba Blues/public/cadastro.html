@@ -26,7 +26,6 @@
   <div class="navbar">
       <a href="index.html" class="direcionamentos">Início</a>
       <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
-      <a href="quiz.html" class="direcionamentos">Quiz</a>
       <div class="login">    
           <a href="login.html" class="direcionamentos">Login</a>
           <div class="cadastro-">
@@ -56,30 +55,31 @@
             </a>
             <a class="item">
                 Senha:<br>
-                <input class="input" type="text" id="input_senha">
+                <input class="input" type="password" id="input_senha">
                 
             </a>
             <a class="item">
                 Confirmação de senha:<br>
-                <input class="input" type="text" id="input_confirmacao">
+                <input class="input" type="password" id="input_confirmacao">
                 
             </a>
 <br>
             <a class="botao-cadastro" onclick="cadastrar()">Cadastre-se</a>
-<br> 
-        </div>
-        <br><br><br>
+            <br>
+          </div>
+          <br><br>
+          <hr> 
+        <br>
         <footer>
           <p class="contato">
     
-            <div class="titulo-footer">
+            <div class="titulo">
               Jurubeba Blues<br>
             </div>
             <div class="conteudo-footer">
               Contatos: <br>
               • julia.rocha@sptech.school <br>
-              • (11) 4002-8922 <br>
-              • @jurubebablues <br><br>
+              • (11) 4002-8922 <br><br><br>
             </p>
             </div>
     
@@ -169,6 +169,18 @@
         console.log(`#ERRO: ${resposta}`);
       });
 
+
+
+              function carregar(){
+            var usuario = sessionStorage.NOME_USUARIO;
+            mostrarNome.innerHTML = `Bem-Vindo, ${usuario}`;
+        }
+
+        window.onload = carregar()
+                  window.onload = ()=>{
+                    var usuario = sessionStorage.NOME_USUARIO;
+                    nome_usuario.innerHTML = `Bem-Vindo, ${usuario}`;
+        }
 
   
 

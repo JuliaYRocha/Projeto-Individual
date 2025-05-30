@@ -25,8 +25,9 @@
     <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
     <a href="quiz.html" class="direcionamentos">Quiz</a>
     <!-- <a href="" class="direcionamentos">Dashboard | Músicas</a> -->
-    <div class="login">    
-    <a class="direcionamentos" id ="nome_usuario"></a>
+
+    <div class="login">   
+       <a href="index.html" class="direcionamentos-nome" id="mostrarNome"></a>
     </div>
   </div>
 </div>
@@ -43,32 +44,47 @@
     <h1>De Quem É Essa Música?</h1>
     <div id="quiz-container">
         <p id="pergunta"></p>
-        <button id="opcao1" onclick=""></button>
-        <button id="opcao2"></button>
-        <button id="opcao3"></button>
-        <button id="opcao4"></button>
-        <p id="feedback"></p>
-        <button id="proxima-pergunta">Próxima Pergunta</button>
-    </div>
-    <p id="pontuacao"></p>
+        <div class="opcoes">
+            <button class="botao-opcoes" id="opcao1"></button>
+            <button class="botao-opcoes" id="opcao2"></button>
+            <button class="botao-opcoes" id="opcao3"></button>
+            <button class="botao-opcoes" id="opcao4"></button>
+        </div>
+        <div class="prox">
+            <button id="proxima-pergunta" class="botao-prox">Próxima Pergunta</button>
+        </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-</div>
-    
+        <p id="feedback"></p>
+
+        <br><br><br><br><br><br><br><br><br><br>
+    <footer>
+      <p class="contato">
+
+        <div class="titulo-footer">
+          Jurubeba Blues<br>
+        </div>
+        <div class="conteudo-footer">
+          Contatos: <br>
+          • julia.rocha@sptech.school <br>
+          • (11) 4002-8922 <br>
+          • @jurubebablues <br><br>
+        </p>
+        </div>
+
+    </footer>        
+   
     </body>
 </main>
     </html>
+    <!-- var pontuacao = 0
+
+    for(var i = 0; i < listaPerguntas.length; i++){
+
+    if(listaPerguntas[0].respCorreta == listaPerguntas[0].opcoes){
+        pontuacao ++;
+    } else if(listaPerguntas[1].respCorreta == listaPerguntas[1].opcoes){
+        pontuacao
+    } -->
 
 <script>
 
@@ -100,8 +116,23 @@
         },
         {
             pergunta: "Não quero lhe contar, meu grande amor, das coisas que ouvi nos discos, quero lhe contar o que eu vivi e tudo que aconteceu comigo, Viver é melhor que sonhar, e eu sei que o amor é uma coisa boa, Mas também sei que qualquer canto, É menor que a vida de qualquer pessoa.",
-            opcoes: ["Rita Lee", "The Beatles", "Elis Regina", "Madonna"],
-            respCorreta: "Elis Regina"
+            opcoes: ["Rita Lee", "The Beatles", "Belchior", "Madonna"],
+            respCorreta: "Belchior"
+        },
+        {
+            pergunta: "Slow down, you crazy child, You're so ambitious for a juvenile, But then if you're so smart, Tell me why are you still so afraid? ",
+            opcoes: ["Michel Teló", "Billy Joel", "Harry Styles", "Ed Sheeran"],
+            respCorreta: "Billy Joel"
+        },
+        {
+            pergunta: "You know the distance never made a difference to me, I swam a lake of fire, I'd have walked across the floor of any sea, ",
+            opcoes: ["Hozier", "Vintage Culture", "Post Malone", "Queen"],
+            respCorreta: "Hozier"
+        },
+        {
+            pergunta: "But, darling, you are the only exception, You are the only exception",
+            opcoes: ["Nelly Furtado", "Deftones", "Paramore", "Anitta"],
+            respCorreta: "Paramore"
         },
         {
             pergunta: "Regrets collect like old friends, Here to relive your darkest moments, I can see no way, I can see no way, And all of the ghouls come out to play.",
@@ -201,9 +232,19 @@ btnComecar.onclick = function() {
     
     carregarQuestao();
 
-            window.onload = ()=>{
+    
+
+
+
+        function carregar(){
             var usuario = sessionStorage.NOME_USUARIO;
-            nome_usuario.innerHTML = `Bem-Vindo, ${usuario}`;
+            mostrarNome.innerHTML = `Bem-Vindo, ${usuario}`;
+        }
+
+        window.onload = carregar()
+                  window.onload = ()=>{
+                    var usuario = sessionStorage.NOME_USUARIO;
+                    nome_usuario.innerHTML = `Bem-Vindo, ${usuario}`;
         }
 
 

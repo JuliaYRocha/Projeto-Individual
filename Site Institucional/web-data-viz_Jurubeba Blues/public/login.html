@@ -26,8 +26,6 @@
   <div class="navbar">
       <a href="index.html" class="direcionamentos">Início</a>
       <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
-      <a href="quiz.html" class="direcionamentos">Quiz</a>
-      <!-- <a href="" class="direcionamentos">Dashboard | Músicas</a> -->
       <div class="login-btn">    
           <div class="login">
           <a href="login.html" class="direcionamentos">Login</a>
@@ -39,7 +37,7 @@
 
 
   <main class="main">
-    <a class="titulo">É novo por aqui? CADASTRE-SE! </a>
+    <a class="titulo">E aí, como vai? <br> Faça login e aproveite sua sessão.</a>
 
         <div class="card-login">
 
@@ -53,7 +51,7 @@
             </p>
             <p class="item">
                 Senha:<br>
-                <input class="input" type="text" id="input_senha">
+                <input class="input" type="password" id="input_senha">
                 
             </p>
 
@@ -63,7 +61,9 @@
             <br>
 
         </div>
-        <br><br><br><br>
+        <br><br>
+        <hr>
+        <br><br>
         <footer>
           <p class="contato">
     
@@ -74,7 +74,7 @@
               Contatos: <br>
               • julia.rocha@sptech.school <br>
               • (11) 4002-8922 <br>
-              • @jurubebablues <br><br>
+             <br><br>
             </p>
             </div>
     
@@ -185,7 +185,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location.href = "usuario-log.html"
+                        window.location.href = "index.html"
                     }, 1000); 
 
                 });
@@ -207,4 +207,14 @@
         return false;
     }
 
+    function carregar(){
+            var usuario = sessionStorage.NOME_USUARIO;
+            mostrarNome.innerHTML = `Bem-Vindo, ${usuario}`;
+        }
+
+        window.onload = carregar()
+                  window.onload = ()=>{
+                    var usuario = sessionStorage.NOME_USUARIO;
+                    nome_usuario.innerHTML = `Bem-Vindo, ${usuario}`;
+        }
     </script>

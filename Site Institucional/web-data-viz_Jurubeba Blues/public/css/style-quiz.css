@@ -85,7 +85,7 @@ body {
     font-weight: bolder;
     width: 35%;
     height: 3%;
-    background-color: var(--bordoescuro);
+    background-color: transparent;
     border-radius: 30px;
     padding: 0.5vh 2vh;
     text-decoration: none;

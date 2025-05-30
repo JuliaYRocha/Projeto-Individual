@@ -1,0 +1,57 @@
+	insert into musica (id, titulo, link, autor, genero) values 
+(default, 'Shake It Out', '', 'Florence + The Machine', 'partying'),
+
+(default, "Don't You Worry Child", '', 'Swedish House Mafia', 'partying'),
+
+(default, 'Midnight City', '', 'M83', 'partying'),
+
+(default, 'Hard Times', '', 'Paramore', 'partying'),
+
+
+(default, 'November Rain', '', "Guns n' Roses", 'feeling low'),
+
+(default, 'O Bêbado E A Equilibrista', '', "Guns n' Roses", 'feeling low'),
+
+(default, 'Nothing Compares To U', '','feeling low'),
+
+(default, 'Here Comes The Sun', '', 'feeling low'),
+
+(default, 'Wish You Were Here', '', 'feeling low'),
+
+
+
+(default, 'Cherry Waves', '	', 'Deftones', 'alternative'),
+(default, 'Promiscuous', '', 'Nelly Furtado', 'alternative'),
+
+(default, 'Shamefull Company', '', 'Rainbow Kitten Surprise', 'alternative'),
+
+(default, 'One Last Breath', '', 'Creed', 'alternative'),
+
+
+(default, 'Tudo Que Você Quiser', '', 'Luan Santana', 'romantic'),
+
+(default, 'Iris', '', 'Goo Goo Dolls', 'romantic'),
+
+(default, 'Turning Page', '', 'Sleeping At Last', 'romantic'),
+
+(default, 'The Only Exception', '', 'Paramore', 'romantic'),
+
+
+(default, 'Melhor Do Que Parece', '', 'O Terno', 'chill vibes'),
+
+(default, 'Palavras No Corpo', '', 'Gal Costa', 'chill vibes'),
+
+(default, 'Wondering Why', '', 'The Red Clay Strays', 'chill vibes'),
+
+(default, 'Unknown/Nth', '', 'Hozier', 'chill vibes'),
+
+
+(default, 'Vienna', '', 'Billy Joel', 'a vida como ela é'),
+
+(default, 'Como Nossos Pais', '', 'Belchior', 'a vida como ela é'),
+
+(default, 'Melhor Do Que Parece', '', 'O Terno', 'a vida como ela é'),
+
+(default, 'Piano Man', '', 'Billy Joel', 'a vida como ela é');
+
+
