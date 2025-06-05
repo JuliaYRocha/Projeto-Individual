@@ -1,0 +1,234 @@
+@import url(https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap);
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 0;
+    font-size: 20px;
+    color: #fff;
+    font-family: poppins, sans-serif; 
+    background: url('../assets/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+
+ :root {
+    --vermelho: #971e1e;
+    --preto: #0000;
+    --branco: #FFFEFA;
+    --bordo: #360000;
+    --vinho: #570808;
+    --laranja: #AD1A1A;
+    --marrom: #332424;
+    --bordoescuro: #1F0000;
+
+} 
+
+/* .linha {
+    height: 3%;
+    width: 100%;
+    background-color: var(--bordo);
+} */
+
+.logo {
+    display: flex;
+    /* margin-left: 1%; */
+
+    text-align: center;
+    margin-top: 0.5vh;
+
+    font-size: larger;
+    font-weight: 700;
+    /* flex-direction: column; */
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    
+    height: 10vh;
+    width: 100%;
+    align-items: center;
+    
+    color: var(--branco);
+    background-color: var(--bordo);
+    
+    /* box-shadow: 2px 2px 5px black, -2px -2px 5px gray; */
+}
+
+.header a {
+    text-decoration: none;
+    color: var(--branco);
+    margin-right: 5vh;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* padding: 15%; */
+    gap: 1vh;
+    align-items: center;
+    text-align: center;
+
+}
+
+.main {
+    width: 100%;
+    background: transparent;
+    height: 100%;
+    text-align: center;
+}
+
+.main .titulo {
+    display: flex;
+    justify-content: center;
+    padding: 5vh 0 2vh 0;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.main .subtitulo {
+    display: flex;
+    justify-content: center;
+    padding: 0 30px; 
+    position: relative;
+    text-align: center;
+}
+
+.navbar .direcionamentos {
+    width: 40%;
+    height: 5%;
+    background-color: var(--bordoescuro);
+    border-radius: 30px;
+    padding: 0.5vh 2vh;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.navbar .cadastro- .direcionamentos {
+    font-weight: bolder;
+    width: 35%;
+    height: 3%;
+    background-color: var(--bordoescuro);
+    border-radius: 30px;
+    padding: 0.5vh 2vh;
+    text-decoration: none;  
+    white-space: nowrap;
+}
+
+.main .direcionamentos {
+    color: var(--branco);
+    width: 35%;
+    height: 3%;
+    background-color: #360000;
+    border-radius: 30px;
+    padding: 0.5vh 2vh;
+    text-decoration: none;
+    white-space: nowrap;  
+    font-weight: bolder;
+}
+
+
+.login {
+    display: flex;
+    gap: 1vh;
+    justify-content: flex-end;
+}
+
+.card-cadastro {
+    display: flex;
+    width: 500px;
+    height: fit-content;
+
+    align-self: center;
+    padding: 1vh 20vh 2vh 20vh; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    align-content: center;
+    margin-left: 23%;
+    gap: 15px;
+
+    
+    border-radius: 20px;
+    border: solid #1F0000;
+    
+    color: #1F0000;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #eae7db;
+}
+
+.topico {
+    font-size: larger;
+}
+
+.botao-cadastro {
+    font-family: poppins, sans-serif;
+    color: var(--branco);
+    width: 38%;
+    height: 4%;
+    background-color: #360000;
+    border-radius: 30px;
+    padding: 0.5vh 2vh;
+    text-decoration: none;
+    white-space: nowrap; 
+    font-size: larger;
+    cursor: pointer;
+} 
+
+
+.input {
+    width: 80vh;
+    height: 4vh;
+
+    border: 2px solid var(--bordoescuro);
+    border-radius: 15px;
+
+    /* align-items: center; */
+    text-align: center;
+
+    font-size: 18px;
+    font-family: poppins, sans-serif;
+}
+
+.cadastro {
+    width: 35%;
+    height: 3%;
+    background-color: var(--bordoescuro);
+    border-radius: 30px;
+    padding: 0.5vh 2vh;
+    text-decoration: none;
+    white-space: nowrap; 
+    color: var(--branco)
+}
+
+/* .contato {
+    
+    /* background-color: #570808; */
+    /* width:100%;
+    height: max-content;
+    color:#360000; */
+/* } */
+
+/* .titulo-footer { */
+    /* width: 100%; */
+    /* background-color: #570808; */
+    /* color:#360000; */
+    /* font-size: 5vh; */
+    /* font-weight: 700; */
+    /* margin-left: 5vh; */
+/* } */
+/* .conteudo-footer { */
+    
+    /* background-color: #570808; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* color: #360000; */
+    /* font-size: smaller; */
+    /* margin-left: 10vh; */
+    /* gap: 1vh; */
+/* }  */
