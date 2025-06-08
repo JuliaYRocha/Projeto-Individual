@@ -25,7 +25,6 @@
   </div>
     <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
     <a id="quizer" href="quiz.html" class="direcionamentos"></a>
-    <!-- <a href="" class="direcionamentos">Dashboard | Músicas</a> -->
     <div id="login" class="login">    
     <a href="login.html" class="direcionamentos">Login</a>
     <a href="cadastro.html" class="direcionamentos">Cadastro</a>
@@ -46,18 +45,9 @@
     
     <div class="card-musicas">
 
-<select class="select-musicas" onchange="selecionarMusica()" id="musicas">
-    <option id="party" value="partying">PARTYING</option>
-    <option value="feeling-low">FEELING LOW</option>
-    <option value="chill-vibes">CHILL VIBES</option>
-    <option value="alternative">ALTERNATIVE</option>
-    <option value="romantic">ROMANTIC</option>
-    <option value="a-vida-como-ela-e">A VIDA COMO ELA É</option>
-</select><br>
-<div class="musicas">
+<div class="musicas" selecionarMusica()>
   <div class="msg" id = "div_msg1"></div>
   <div class="card-spotify" id="div_msg2">
-    <!-- card do spotify -->
       </div>
   </div>
 </div>
@@ -75,7 +65,7 @@
         <div class="conteudo-footer">
           Contatos: <br>
           • julia.rocha@sptech.school <br>
-          • (11) 4002-8922 <br><br><br>
+          • (11) 4002-8922 <br><br>
         </p>
         </div>
 
@@ -99,10 +89,10 @@
             }
             return resposta.json(); 
         })
-        .then(function(dados) {  
+        .then(function(musicas) {  
             const selectMusicas = document.getElementById('musicas');
             const musica = document.getElementById('musica')
-            dados.forEach(function(musica) {
+            musicas.forEach(function(musica) {
               console.log(musica)
 
               
@@ -110,7 +100,7 @@
                   ${musica.titulo} - ${musica.autor} <br> (${musica.genero}) </div>`
                 div_msg2.innerHTML += `<div class="musicas">- 
                 <iframe style="border-radius:12px; margin-right: 40%;" src="${musica.link}"
-                width="50%" 
+                width="500" 
                 height="200" 
                 frameBorder="0" 
                 allowfullscreen="" 
@@ -143,16 +133,15 @@
     }}
 
     
-    //         function carregar(){
-      //     var usuario = sessionStorage.NOME_USUARIO;
-      //     mostrarNome.innerHTML = `Bem-Vindo, ${usuario}`;
-      // }
+            function carregar(){
+          var usuario = sessionStorage.NOME_USUARIO;
+          mostrarNome.innerHTML = `Bem-Vindo, ${usuario}`;
+      }
       
-      // window.onload = carregar()
-      //           window.onload = ()=> {
-        //             var usuario = sessionStorage.NOME_USUARIO;
-        //             nome_usuario.innerHTML = `Bem-Vindo, ${usuario}`;
-        // }
+      window.onload = carregar()
+                window.onload = ()=> {
+                    nome_usuario.innerHTML = `Bem-Vindo, ${usuario}`;
+        }
 
         var listaGeneros = [];
         
@@ -198,35 +187,6 @@
             selectMusicas.innerHTML = '<option>Erro ao carregar</option>';
         });
     };
-
-          var partying = document.getElementById('party');
-
-          var musicaMsg = `<div class="musicas">
-                        ${musica.titulo} - ${musica.autor} (${musica.genero}) - 
-                      <iframe style="border-radius:12px; margin-right: 40%;" src="${musica.link}"
-                      width="50%" 
-                      height="200" 
-                      frameBorder="0" 
-                      allowfullscreen="" 
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                      loading="lazy"></iframe></div></div>`
-
-          // for(var i = 0; i < listaGeneros.length; i++){
-          //   if (musica.genero == 'partying'){
-          //     listaGeneros.push(musicaMsg)
-          //     div_msg.innerHTML += listaGeneros[i] 
-          //   } else if (musica.genero == 'feeling low'){
-          //     listaGeneros.push(musicaMsg)
-          //     div_msg.innerHTML += listaGeneros[i]  
-          //   } else if(musica.genero == 'chill vibes'){
-          //     listaGeneros.push(musicaMsg)
-          //     div_msg.innerHTML += listaGeneros[i] 
-          //   } else if (musica.genero == 'alternative'){
-          //     listaGeneros.push(musicaMsg)
-          //     div_msg.innerHTML += listaGeneros[i] 
-          //   }
-          // } 
-    
         
         }
 

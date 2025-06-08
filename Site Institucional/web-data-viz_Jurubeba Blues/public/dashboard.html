@@ -3,11 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jurubeba Blues | Dashboard</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/style-dashboard.css">
 </head>
-<body>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+</style>
+<body class="body">
+<div class="container">
+    <div class="div1">NAVBAR</div>
+    <div class="div2">KPI 1</div>
+    <div class="div3">KPI 2</div>
+        <div class="div4">KPI 3</div>
+    <div class="div5">LEGENDA?</div>
+    <div class="div6">GRAFICO</div>
+        <div class="div7">LEGENDA</div>
+    <div class="div8">GRAFICO</div>
+    <div class="div9">LEGENDA</div>
 
-    
-    
+</div>
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    let erros = 0;
+    let acertos = 0;
+
+    window.onload = function() {
+        exibirRespostas();
+    }
+
+
+    function exibirRespostas(){
+
+    }
+
+        function inserirRespostas(){
+
+        const idUsuario = sessionStorage.getItem("ID_USUARIO");
+
+        if(idUsuario == null){
+            alert("Você precisa estar logado para salvar seu resultado!");
+        return;
+        }
+
+        fetch("/quiz/inserirRespostas", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                idUsuarioServer: (idUsuario),
+                respostasCertasServer: acertos,
+                respostasErradasServer: erros
+            })
+        })
+        .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            alert("Respostas cadastradas com sucesso!");
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro das respostas!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+}
+
+
+
+</script>
