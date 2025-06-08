@@ -28,7 +28,7 @@
     <a href="index.html" class="direcionamentos">Início</a>
   </div>
     <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
-    <a id="quizer" href="quiz v.3.html" class="sessao"></a>
+    <a id="quizer" href="quiz.html" class="sessao">Quiz</a>
     <a href="login.html" class="direcionamentos">Login</a>
     <a href="cadastro.html" class="direcionamentos">Cadastro</a>
     <div id="finaliz"></div>
@@ -248,7 +248,6 @@
 
     if (email != null && nome != null) {
         document.getElementById('login').innerHTML = `<span> Bem-vindo ${nome}</span>`
-        document.getElementById('quizer').innerHTML = `Quiz`
         document.getElementById('finaliz').innerHTML = `<button id="finalizarSessao" onclick="limparSessao()" class="sessao">Finalizar Sessão</button>`
 
     } else {

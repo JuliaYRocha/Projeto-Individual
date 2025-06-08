@@ -3,25 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style-quiz.css">
+    
     <title>Quiz | De Quem É Essa Letra? </title>
 </head>
 <body>
 
     <div class="container">
 
-        <div class="questions-container">
+        <div class="questions-container hide">
             <span class="question">Pergunta aqui?</span>
-
-            <div class="answers-container">
+            <br>
+            <div class="answers-container hide">
                 <button class="answer-button">Resposta 1</button>
                 <button class="answer-button">Resposta 2</button>
                 <button class="answer-button">Resposta 3</button>
                 <button class="answer-button">Resposta 4</button>
             </div>
         </div>
+        <br>
         <div class="controls-container">
-            <button class="start-quiz-btn">Começar Quiz!</button>
-            <button class="next-question-btn">Próxima Pergunta</button>
+            <div class="start-text">
+                <h1>De quem é essa música?</h1><br>
+            <span>Leia a letra da música e adivinhe quem é o autor e, ao final, veja seus resultados.</span></div>
+            <br>
+            <button class="start-quiz">Começar Quiz!</button>
+            <button class="next-question hide">Próxima Pergunta</button>
+            <br>
         </div>
     </div>
   
@@ -29,5 +37,212 @@
 </html>
 <script>
 
+    const $startGameButton = document.querySelector('.start-quiz');
+    const $startText = document.querySelector('.start-text');
+    const $questionsContainer = document.querySelector('.questions-container');
+    const $answersContainer = document.querySelector('.answers-container');
+    const $questionText = document.querySelector('.question');
+    const $nextQuestionButton = document.querySelector(".next-question")
+
+
+    const questions = [
+        {
+            question: "Eu troco minha paz por um beijo seu, Eu troco meu destino pra viver o seu, Eu troco minha cama pra dormir na sua, Eu troco mil estrelas pra te dar a lua E tudo que você quiser E se você quiser te dou meu sobrenome",
+            answers: [
+                { text: "Luan Santana", correct: true },
+                { text: "Lady Gaga", correct: false },
+                { text: "Chief Keef", correct: false },
+                { text: "Jorge e Mateus", correct: false }
+            ]
+        },
+        {
+            question: "I could eat my dinner in a fancy restaurant,\n But nothing, I said nothing can take away these blues,\n 'Cause nothing compares, nothing compares to you.",
+            answers: [
+                { text: "Lady Gaga", correct: false },
+                { text: "Sinéad O' Connor", correct: true },
+                { text: "Katy Perry", correct: false },
+                { text: "Johnny Cash", correct: false }
+            ]
+        },
+        {
+            question: "And I give up forever to touch you,\n 'Cause I know that you feel me somehow,\n You're the closest to heaven that I'll ever be,\n And I don't wanna go home right now.",
+            answers: [
+                { text: "Henrique e Juliano", correct: false },
+                { text: "Queen", correct: false },
+                { text: "Guns n' Roses", correct: false },
+                { text: "Goo Goo Dolls", correct: true }
+            ]
+        },
+        {
+            question: "The waves suck you in then you drown, If like, you should sink down beneath, I'll swim down with you, Is that what you want?, You, Is that what you want?",
+            answers: [
+                { text: "Anitta", correct: false },
+                { text: "Paramore", correct: false },
+                { text: "Deftones", correct: true },
+                { text: "Elis Regina", correct: false }
+            ]
+        },
+        {
+            question: "Fomos felizes e felizes somos, e se já não somos, meu amor, não se preocupe, não, aperte a minha mão, até a luz sumir em meio a escuridão, você vai confiar em mim.",
+            answers: [
+                { text: "Lana Del Rey", correct: false },
+                { text: "Gal Costa", correct: true },
+                { text: "Travis Scott", correct: false },
+                { text: "Cristiano Araújo", correct: false }
+            ]
+        },
+        {
+            question: "Não quero lhe contar, meu grande amor, das coisas que ouvi nos discos, quero lhe contar o que eu vivi e tudo que aconteceu comigo, Viver é melhor que sonhar, e eu sei que o amor é uma coisa boa, Mas também sei que qualquer canto, É menor que a vida de qualquer pessoa.",
+            answers: [
+                { text: "Madonna", correct: false },
+                { text: "Lynyrd Skynyrd", correct: false },
+                { text: "Belchior", correct: true },
+                { text: "Oruam", correct: false }
+            ]
+        },
+        {
+            question: "Slow down, you crazy child, You're so ambitious for a juvenile, But then if you're so smart, Tell me why are you still so afraid?",
+            answers: [
+                { text: "Billy Joel", correct: true },
+                { text: "Avril Lavigne", correct: false },
+                { text: "Hozier", correct: false },
+                { text: "Charlie Puth", correct: false }
+            ]
+        },
+        {
+            question: "But, darling, you are the only exception, You are the only exception",
+            answers: [
+                { text: "Nelly Furtado", correct: false },
+                { text: "Detonautas", correct: false },
+                { text: "Paramore", correct: true },
+                { text: "June Cash", correct: false }
+            ]
+        },
+        {
+            question: "Regrets collect like old friends, Here to relive your darkest moments, I can see no way, I can see no way, And all of the ghouls come out to play.",
+            answers: [
+                { text: "Taylor Swift", correct: false },
+                { text: "AnaVitória", correct: false },
+                { text: "Justin Bieber", correct: false },
+                { text: "Florence + The Machine", correct: true }
+            ]
+        },
+        {
+            question: "Your love is my turning page, Where only the sweetest words remain",
+            answers: [
+                { text: "Sleeping At Last", correct: true },
+                { text: "Shawn Mendes", correct: false },
+                { text: "Ed Sheeran", correct: false },
+                { text: "My Chemical Romance", correct: false }
+            ]
+        } 
+    ];
+
+    let currentQuestionIndex = 0;
+    let totalCorrect = 0;
+    
+
+    $startGameButton.addEventListener("click", startQuestion);
+    $nextQuestionButton.addEventListener("click", displayNextQuestion )
+
+    function startQuestion() {
+        $startGameButton.classList.add('hide');
+        $startText.classList.add('hide');
+
+        $questionsContainer.classList.remove('hide');
+        $answersContainer.classList.remove('hide');
+
+        displayNextQuestion()
+    }
+
+    function displayNextQuestion(){
+        resetState();
+
+        if(currentQuestionIndex === questions.length){
+            return finishGame()
+        } 
+
+        $questionText.textContent = questions[currentQuestionIndex].question;
+        questions[currentQuestionIndex].answers.forEach(answer => {
+            const newAnswer = document.createElement("button");
+            newAnswer.classList.add("button", "answer")
+            newAnswer.textContent = answer.text;
+
+            if(answer.correct){
+                newAnswer.dataset.correct = answer.correct;
+            };
+
+            $answersContainer.appendChild(newAnswer);
+
+            newAnswer.addEventListener("click", selectAnswer);
+            
+        })
+    }
+
+    function resetState(){
+         while($answersContainer.firstChild) {
+         $answersContainer.removeChild($answersContainer.firstChild);
+        };
+
+        document.body.removeAttribute("class");
+        $nextQuestionButton.classList.add("hide");
+    }
+
+    function selectAnswer(event){
+        const answerClicked = event.target;
+
+        if (answerClicked.dataset.correct){
+            document.body.classList.add("correct")
+            totalCorrect++;
+        } else {
+            document.body.classList.add("incorrect")
+        }
+
+        document.querySelectorAll(".answer").forEach(button => {
+            if(button.dataset.correct){
+                button.classList.add("correct")
+                
+            } else {
+                button.classList.add("incorrect")
+                
+            }
+
+            button.disabled = true;
+    })
+
+            $nextQuestionButton.classList.remove("hide");
+            currentQuestionIndex++;
+        }
+    
+        function finishGame(){
+            const totalQuestions = questions.length;
+            const performance = Math.floor(totalCorrect * 100 / totalQuestions);
+            
+            let message = ``;
+
+            if (performance >= 90){
+                message = `Você é expert em música!`;
+                
+            } else if(performance >= 70) {
+                message = `Muito bom!`;
+            } else if (performance >= 50){
+                message = `Pode melhorar! Confira a biblioteca!`
+            } else if(performance < 50){
+                message = `Pode melhorar! :( <br> Confira a biblioteca!`
+            }
+
+            $questionsContainer.innerHTML = 
+            
+            `
+            <p class="final-message">
+            Você acertou ${totalCorrect} de ${totalQuestions} questões. <br> Confira seus resultados no botão "Estatísticas".
+            <span>Resultados: ${message}</span>
+            </p>
+
+            <button>Refazer Quiz!</button> 
+            <button>Estatísticas</button>
+            `
+            
+        }
     
 </script>
