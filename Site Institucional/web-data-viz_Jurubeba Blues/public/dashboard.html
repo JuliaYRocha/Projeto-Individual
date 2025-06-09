@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../public/css/style-dashboard.css">
+    <link rel="stylesheet" href="../css/style-dashboard.css">
 </head>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -17,11 +17,11 @@
         <button class="pag-index">🏠 Início</button>
         <button class="ativo">📊 Dash</button>
     </div>  
-    <div class="div2">KPI 1</div>
-    <div class="div3">KPI 2</div>
-        <div class="div4">KPI 3</div>
+    <div class="div2" id="kpiPontuacao"></div>
+    <div class="div3" id="kpiAcertos"></div>
+        <div class="div4" id="kpiJogos"></div>
     <div class="div5">LEGENDA?</div>
-    <div class="div6">GRAFICO</div>
+    <canvas class="div6" id="graficoErrosAcertos">Erros e acertos</canvas>
         <div class="div7">LEGENDA</div>
     <div class="div8">GRAFICO</div>
     <div class="div9">LEGENDA</div>
@@ -35,50 +35,117 @@
     let acertos = 0;
 
     window.onload = function() {
-        exibirRespostas();
-    }
+        const idUsuario = sessionStorage.ID_USUARIO;
+        exibirKpiAcertos(idUsuario);
+        exibirGraficoErrosAcertos(idUsuario);
+        exibirVezesJogadas(idUsuario);
+        exibirMelhorPontuacao(idUsuario);
+    };
 
-
-    function exibirRespostas(){
-
-    }
-
-        function inserirRespostas(){
-        const idQuiz = sessionStorage.getItem("ID_QUIZ");
-        const idUsuario = sessionStorage.getItem("ID_USUARIO");
-
-        if(idUsuario == null){
-            alert("Você precisa estar logado para salvar seu resultado!");
-        return;
-        }
-
-        fetch("/quiz/inserirRespostas", {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                fkUsuarioServer: idUsuario,
-                fkQuizServer: idQuiz,
-                totalCorrectServer: totalCorrect,
-                totalIncorrectServer: totalIncorrect,
-                performanceServer: performance
-            })
+    function exibirKpiAcertos(idUsuario){
+        fetch(`/quiz/exibirAcertos/${idUsuario}`, {
+            method: `GET`,
+            cache: 'no-store'
         })
-        .then(function (resposta) {
-        console.log("resposta: ", resposta);
+        .then(function (response) {
+            if(response.ok){
+                response.json().then(function (resposta) {
+                    const acertos = resposta.totalCorrect;
+                    document.getElementById('kpiAcertos').innerText = `Média de Acertos: ${acertos}`;
+                });
+            } else {
+                document.getElementById('kpiAcertos').innerText = 'Erro ao carregar';
+            }
+        })
+        .catch(function (error){
+            console.error(`Erro na obtenção dos dados p/ kpi: ${error.message}`);
+        });
+    } 
 
-        if (resposta.ok) {
-            alert("Respostas cadastradas com sucesso!");
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro das respostas!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
+            function exibirMelhorPontuacao(idUsuario){
+        fetch(`/quiz/exibirMelhorPontuacao/${idUsuario}`, {
+            method: `GET`,
+            cache: 'no-store'
+        })
+        .then(function (response) {
+            if(response.ok){
+                response.json().then(function (resposta) {
+                    const melhorPontuacao = resposta.melhorPontuacao;
+                    document.getElementById('kpiPontuacao').innerText = `Melhor Pontuação: ${melhorPontuacao}`;
+                });
+            } else {
+                document.getElementById('kpiPontuacao').innerText = 'Erro ao carregar';
+            }
+        })
+        .catch(function (error){
+            console.error(`Erro na obtenção dos dados p/ kpi: ${error.message}`);
+        });
+    } 
 
-    return false;
-}
+        function exibirVezesJogadas(idUsuario){
+        fetch(`/quiz/exibirVezesJogadas/${idUsuario}`, {
+            method: `GET`,
+            cache: 'no-store'
+        })
+        .then(function (response) {
+            if(response.ok){
+                response.json().then(function (resposta) {
+                    const vezesJogadas = resposta.vezesJogadas;
+                    document.getElementById('kpiJogos').innerText = `Vezes jogadas: ${vezesJogadas}`;
+                });
+            } else {
+                document.getElementById('kpiJogos').innerText = 'Erro ao carregar';
+            }
+        })
+        .catch(function (error){
+            console.error(`Erro na obtenção dos dados p/ kpi: ${error.message}`);
+        });
+    } 
 
+   function exibirGraficoErrosAcertos(idUsuario) {
+        fetch(`/quiz/exibirErrosAcertos/${idUsuario}`, {
+            method: 'GET',
+            cache: 'no-store'
+        })
+        .then(function(response) {
+            if (response.ok){
+                response.json().then(function(resposta){
+                    let erros = 0
+                    let acertos = 0
 
+                    for(let i = 0; i < resposta.length; i++){
+                        erros += resposta[i].Erros;
+                        acertos += resposta[i].Acertos;
+                    }
+                    const ctx = document.getElementById('graficoErrosAcertos').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Erros', 'Acertos'],
+                            datasets: [{
+                                label: 'Quantidade',
+                                data: [erros, acertos],
+                                backgroundColor: ['#c0392b', '#27ae60']
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                    const divMensagem = document.querySelector('.div7');
+                if (erros > acertos) {
+                    divMensagem.innerText = "Você precisa ouvir mais músicas para melhorar seu resultado";
+                } else {
+                    divMensagem.innerText = "Você entende bem de música";
+                }
+                });
+            }
+        });
+   }
 
 </script>

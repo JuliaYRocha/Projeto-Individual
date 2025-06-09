@@ -10,6 +10,46 @@ function inserirRespostas(fkUsuario, fkQuiz, totalIncorrect, totalCorrect, perfo
     return database.executar(instrucaoSql);
 }
 
+function exibirRespostas(idUsuario){
+    console.log("ACESSEI O USUARIO MODEL - function exibirRespostas()");
+    var instrucaoSql = `
+        SELECT AVG(totalCorrect) as totalCorrect FROM respostasQuiz WHERE fkUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução sql: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function exibirErrosAcertos(idUsuario){
+    console.log("ACESSEI O USUARIO MODEL - function exibirErrosAcertos()");
+    var instrucaoSql = `
+        SELECT totalIncorrect, totalCorrect FROM respostasQuiz WHERE fkUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução sql: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function exibirVezesJogadas(idUsuario){
+    console.log("ACESSEI O USUARIO MODEL - function exibirVezesJogadas()");
+    var instrucaoSql = `
+        select COUNT(*) as vezesJogadas from respostasQuiz where fkUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução sql: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function exibirMelhorPontuacao(idUsuario){
+    console.log("ACESSEI O USUARIO MODEL - function exibirMelhorPontuacao()");
+    var instrucaoSql = `
+       select max(performance) as melhorPontuacao from respostasQuiz where fkUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução sql: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
-    inserirRespostas
+    inserirRespostas,
+    exibirRespostas,
+    exibirErrosAcertos,
+    exibirVezesJogadas,
+    exibirMelhorPontuacao
 };

@@ -40,6 +40,65 @@ function inserirRespostas(req, res) {
     }
 }
 
+function exibirRespostas(req, res){
+    const idUsuario = req.params.idUsuario;
+    quizModel.exibirRespostas(idUsuario)
+    .then(resultado => {
+        if (resultado.length > 0) {
+
+            res.json({ totalCorrect: resultado[0].totalCorrect });
+        } else {
+            res.json({ totalCorrect: 0 });
+        }
+    })
+    .catch(erro => {
+        console.log(erro);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function exibirErrosAcertos(req, res){
+    const idUsuario = req.params.idUsuario;
+    quizModel.exibirErrosAcertos(idUsuario)
+    .then(resultado => {
+        let erros = 0;
+        let acertos = 0;
+        for(let i = 0; i < resultado.length; i++) {
+            erros += resultado[i].totalIncorrect;
+            acertos += resultado[i].totalCorrect;
+        }
+        res.json([{Erros: erros, Acertos: acertos}]);
+  })
+  .catch(erro => {
+    console.log(erro);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
+function exibirVezesJogadas(req, res){
+    const idUsuario = req.params.idUsuario;
+    quizModel.exibirVezesJogadas(idUsuario)
+    .then(resultado => {
+        if (resultado.length > 0) {
+            res.json({vezesJogadas: resultado[0].vezesJogadas});
+        }
+    })
+}
+
+function exibirMelhorPontuacao(req, res){
+    const idUsuario = req.params.idUsuario;
+    quizModel.exibirMelhorPontuacao(idUsuario)
+    .then(resultado => {
+        if (resultado.length > 0) {
+            res.json({melhorPontuacao: resultado[0].melhorPontuacao});
+        }
+    })
+}
+
 module.exports = {
-    inserirRespostas
+    inserirRespostas,
+    exibirRespostas,
+    exibirErrosAcertos,
+    exibirVezesJogadas,
+    exibirMelhorPontuacao
 }
