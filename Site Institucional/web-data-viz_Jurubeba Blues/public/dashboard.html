@@ -11,7 +11,12 @@
 </style>
 <body class="body">
 <div class="container">
-    <div class="div1">NAVBAR</div>
+ 
+    <div class="div1">
+        <button class="pag-quiz">🎼 Quiz</button>
+        <button class="pag-index">🏠 Início</button>
+        <button class="ativo">📊 Dash</button>
+    </div>  
     <div class="div2">KPI 1</div>
     <div class="div3">KPI 2</div>
         <div class="div4">KPI 3</div>
@@ -39,7 +44,7 @@
     }
 
         function inserirRespostas(){
-
+        const idQuiz = sessionStorage.getItem("ID_QUIZ");
         const idUsuario = sessionStorage.getItem("ID_USUARIO");
 
         if(idUsuario == null){
@@ -51,9 +56,11 @@
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                idUsuarioServer: (idUsuario),
-                respostasCertasServer: acertos,
-                respostasErradasServer: erros
+                fkUsuarioServer: idUsuario,
+                fkQuizServer: idQuiz,
+                totalCorrectServer: totalCorrect,
+                totalIncorrectServer: totalIncorrect,
+                performanceServer: performance
             })
         })
         .then(function (resposta) {

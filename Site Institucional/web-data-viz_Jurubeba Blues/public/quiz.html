@@ -140,6 +140,8 @@
 
     let currentQuestionIndex = 0;
     let totalCorrect = 0;
+    let totalIncorrect = 0;
+    let performance = 0;
     
 
     $startGameButton.addEventListener("click", startQuestion);
@@ -215,9 +217,10 @@
         }
     
         function finishGame(){
+            console.log('questions:', questions);
             const totalQuestions = questions.length;
-            const performance = Math.floor(totalCorrect * 100 / totalQuestions);
-            
+            performance = Math.floor(totalCorrect * 100 / totalQuestions);
+            totalIncorrect = totalQuestions - totalCorrect;
             let message = ``;
 
             if (performance >= 90){
@@ -231,6 +234,8 @@
                 message = `Pode melhorar! :( <br> Confira a biblioteca!`
             }
 
+            inserirRespostas();
+
             $questionsContainer.innerHTML = 
             
             `
@@ -239,10 +244,46 @@
             <span>Resultados: ${message}</span>
             </p>
 
-            <button>Refazer Quiz!</button> 
-            <button>Estatísticas</button>
+            <button onclick=window.location.reload()>Refazer Quiz!</button> 
+            <a class="dashboard-button" href="../dashboard.html" >Estatísticas</a>
             `
-            
+
         }
+
+        function inserirRespostas(){
+    const idUsuario = sessionStorage.getItem("ID_USUARIO");
+    const idQuiz = 1;
+
+        if(idUsuario == null){
+            alert("Você precisa estar logado para salvar seu resultado!");
+        return;
+        }
+
+        fetch("/quiz/inserirRespostas", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                fkUsuarioServer: idUsuario,
+                fkQuizServer: idQuiz,
+                totalCorrectServer: totalCorrect,
+                totalIncorrectServer: totalIncorrect,
+                performanceServer: performance
+            })
+        })
+        .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            alert("Respostas cadastradas com sucesso!");
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro das respostas!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+}
     
 </script>

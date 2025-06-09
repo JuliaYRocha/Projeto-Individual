@@ -35,6 +35,9 @@
   </div>
 </div>
 
+<div id="cardErro" style="display:none;">
+  <span id="mensagem_erro"></span>
+</div>
 
   <main class="main">
     <a class="titulo">É novo por aqui? CADASTRE-SE! </a>
@@ -65,25 +68,27 @@
             </a>
 <br>
             <a class="botao-cadastro" onclick="cadastrar()">Cadastre-se</a>
+                    <div id="div_aguardar" class="loading-div">
+        </div>
+
+        <div id="div_erros_login"></div>
+      </div>
+
             <br>
           </div>
           <br><br>
           <hr> 
         <br>
-        <footer>
-          <p class="contato">
-    
-            <div class="titulo">
-              Jurubeba Blues<br>
-            </div>
-            <div class="conteudo-footer">
-              Contatos: <br>
-              • julia.rocha@sptech.school <br>
-              • (11) 4002-8922 <br><br><br>
-            </p>
-            </div>
-    
-        </footer>
+<footer>
+  <div class="contato">
+    <div class="titulo">Jurubeba Blues<br></div>
+    <div class="conteudo-footer">
+      Contatos: <br>
+      • julia.rocha@sptech.school <br>
+      • (11) 4002-8922 <br><br><br>
+    </div>
+  </div>
+</footer>
 
     </main>
     
@@ -93,81 +98,57 @@
   let listaUsuariosCadastrados = [];
 
   function cadastrar() {
-    aguardar();
+  aguardar();
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = input_nome.value;
-    // console.log(input_nome.value  )
-    // console.log(nomeVar);
-    var emailVar = input_email.value;
-    var senhaVar = input_senha.value;
-    var confirmacaoSenhaVar = input_confirmacao.value;
+  var nomeVar = document.getElementById("input_nome").value;
+  var emailVar = document.getElementById("input_email").value;
+  var senhaVar = document.getElementById("input_senha").value;
+  var confirmacaoSenhaVar = document.getElementById("input_confirmacao").value;
 
-    // Verificando se há algum campo em branco
-   if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" 
-    ) {
-      // cardErro.style.display = "block";
-      // mensagem_erro.innerHTML =
-      //   "(Mensagem de erro para todos os campos em branco)";
+  if (
+    nomeVar == "" ||
+    emailVar == "" ||
+    senhaVar == "" ||
+    confirmacaoSenhaVar == ""
+  ) {
+    cardErro.style.display = "block";
+    mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+    finalizarAguardar();
+    return false;
+  }
 
-      finalizarAguardar();
-      return false; } // Problematic brace here
-    }
+  fetch("/usuarios/cadastrar", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      nomeServer: nomeVar,
+      emailServer: emailVar,
+      senhaServer: senhaVar
+    }),
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
 
-    // // Verificando se o código de ativação é de alguma empresa cadastrada
-    // for (let i = 0; i < listaUsuariosCadastrados.length; i++) {
-    //   if (listaUsuariosCadastrados[i].codigo_ativacao == musicaFav) {
-    //     idEmpresaVincular = listaUsuariosCadastrados[i].id
-    //     console.log("Código de ativação válido.");
-    //     break;
-    //   } else {
-    //     cardErro.style.display = "block";
-    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-    //     finalizarAguardar();
-    //   }
-    // }
+      if (resposta.ok) {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar
-      }),
+        setTimeout(() => {
+          window.location = "login.html";
+        }, 2000);
+
+        limparFormulario();
+        finalizarAguardar();
+      } else {
+        throw "Houve um erro ao tentar realizar o cadastro!";
+      }
     })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        // if (resposta.ok) {
-        //   cardErro.style.display = "block";
-
-        //   mensagem_erro.innerHTML =
-        //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
-        // } else {
-        //   throw "Houve um erro ao tentar realizar o cadastro!";
-        // }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+}
 
 
 
@@ -176,11 +157,13 @@
             mostrarNome.innerHTML = `Bem-Vindo, ${usuario}`;
         }
 
-        window.onload = carregar()
-                  window.onload = ()=>{
-                    var usuario = sessionStorage.NOME_USUARIO;
-                    nome_usuario.innerHTML = `Bem-Vindo, ${usuario}`;
-        }
+window.onload = () => {
+  var usuario = sessionStorage.NOME_USUARIO;
+  let nome_usuario = document.getElementById("nome_usuario"); // coloque um id no HTML
+  if (nome_usuario) {
+    nome_usuario.innerHTML = `Bem-Vindo, ${usuario}`;
+  }
+};
 
   
 

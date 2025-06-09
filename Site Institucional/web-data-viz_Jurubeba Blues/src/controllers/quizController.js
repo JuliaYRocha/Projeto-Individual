@@ -1,32 +1,28 @@
 var quizModel = require("../models/quizModel");
-const { inserirRespostas } = require("./quizModel");
 // var aquarioModel = require("../models/aquarioModel");
 
 
 function inserirRespostas(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var respostasCertas = req.body.respostasCertasServer;
-    var respostasErradas = req.body.respostasErradasServer;
-    // var cpf = req.body.cpfServer;
-    // var musicaFav = req.body.musicaServer;
-    // var fkEmpresa = req.body.idEmpresaVincularServer;
+        var fkUsuario = req.body.fkUsuarioServer;
+        var fkQuiz = req.body.fkQuizServer;
+        var totalCorrect = req.body.totalCorrectServer;
+        var totalIncorrect = req.body.totalIncorrectServer;
+        var performance = req.body.performanceServer;
 
-    // Faça as validações dos valores
-    if (respostasCertas == undefined) {
-        res.status(400).send("Respostas certas está undefined!");
-    } else if (respostasErradas == undefined) {
-        res.status(400).send("Respostas erradas está undefined!");
-    // } else if (cpf == undefined) {
-    //     res.status(400).send("Seu cpf está undefined!");
-}
-    // } else if (fkEmpresa == undefined) {
-    //     res.status(400).send("Sua empresa a vincular está undefined!");
-    // }else if (musicaFav == undefined) {
-    //     res.status(400).send("Sua musica está undefined!");}
+        if (totalCorrect == undefined) {
+            res.status(400).send("Respostas certas está undefined!");
+        } else if (totalIncorrect == undefined) {
+            res.status(400).send("Respostas erradas está undefined!"); 
+        } else if (performance == undefined){
+            res.status(400).send("Pontuação está undefined!"); 
+        } else if (fkUsuario == undefined) {
+            res.status(400).send("fkUsuario está undefined");
+        } else if(fkQuiz == undefined){
+            res.status(400).send("fkQuiz está undefined");
+        }
          else {
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        quizModel.inserirRespostas(respostasErradas, respostasCertas)
+        quizModel.inserirRespostas(fkUsuario, fkQuiz, totalIncorrect, totalCorrect, performance)
             .then(
                 function (resultado) {
                     res.json(resultado);
