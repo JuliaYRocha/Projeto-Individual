@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/style-dashboard.css">
+    <title>Jurubeba Blues | Dashboard</title>
+    <link rel="stylesheet" href="./css/style-dashboard.css">
 </head>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -13,23 +13,22 @@
 <div class="container">
  
     <div class="div1">
-        <button class="pag-quiz">🎼 Quiz</button>
-        <button class="pag-index">🏠 Início</button>
-        <button class="ativo">📊 Dash</button>
+        <button class="pag-quiz" onclick="direcionarQuiz()">🎼 Quiz</button>
+        <button class="pag-index" onclick="direcionarIndex()">🏠 Início</button>
+        <button class="pag-index" onclick="direcionarDash()">📊 Dash</button>
+        <button class="pag-index" onclick="direcionarBiblioteca()">📚 Library</button>
     </div>  
     <div class="div2" id="kpiPontuacao"></div>
     <div class="div3" id="kpiAcertos"></div>
         <div class="div4" id="kpiJogos"></div>
-    <div class="div5">LEGENDA?</div>
-    <canvas class="div6" id="graficoErrosAcertos">Erros e acertos</canvas>
-        <div class="div7">LEGENDA</div>
-    <div class="div8">GRAFICO</div>
-    <div class="div9">LEGENDA</div>
+    <canvas class="div6" id="graficoErrosAcertos">Gráfico de Erros e acertos</canvas>
+    <div class="div7">LEGENDA</div>
 
 </div>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/Chart.defaults.plugins.legend"></script>
 <script>
     let erros = 0;
     let acertos = 0;
@@ -50,8 +49,8 @@
         .then(function (response) {
             if(response.ok){
                 response.json().then(function (resposta) {
-                    const acertos = resposta.totalCorrect;
-                    document.getElementById('kpiAcertos').innerText = `Média de Acertos: ${acertos}`;
+                    const acertos = Number(resposta.totalCorrect);
+                    document.getElementById('kpiAcertos').innerText = `Média de Acertos: ${acertos.toFixed(2)}`;
                 });
             } else {
                 document.getElementById('kpiAcertos').innerText = 'Erro ao carregar';
@@ -134,18 +133,43 @@
                                 y: {
                                     beginAtZero: true
                                 }
-                            }
-                        }
+                            },
+                            plugins:{
+                                legend: {
+                                    labels: {
+                                    color: 'white'
+                }
+                                }
+                                }
+                        },
+                        plugins: [Chart.defaults.plugins.legend]
+
                     });
                     const divMensagem = document.querySelector('.div7');
                 if (erros > acertos) {
-                    divMensagem.innerText = "Você precisa ouvir mais músicas para melhorar seu resultado";
+                    divMensagem.innerText = "Você precisa ouvir mais músicas para melhorar seu resultado! \n Acesse a biblioteca através do botão Library!";
                 } else {
-                    divMensagem.innerText = "Você entende bem de música";
+                    divMensagem.innerText = "Você entende de música! \n Continue com o seu resultado acessando a biblioteca através do botão Library!";
                 }
                 });
             }
         });
+   }
+
+   function direcionarDash(){
+    window.location='./dashboard.html';
+   }
+
+   function direcionarIndex(){
+    window.location='./index.html';
+   }
+
+   function direcionarQuiz(){
+    window.location ='./quiz.html'
+   }
+
+      function direcionarBiblioteca(){
+    window.location ='./biblioteca.html'
    }
 
 </script>

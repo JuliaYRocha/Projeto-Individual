@@ -18,33 +18,48 @@ body{
     grid-template-columns: repeat(43, 1fr);
     grid-template-rows: repeat(15, 1fr);
     height: 100vh;
-    width: 100%;
-    background:linear-gradient(to bottom, #151515, #313131)
+    justify-content: space-around;
+    width: 100vw;
+    background:linear-gradient(to bottom, #1a0000, #313131)
 }
 
-.div1 { grid-area: 1 / 1 / 16 / 4;}
-.div2 { grid-area: 2 / 5 / 4 / 11; }
-.div3 { grid-area: 5 / 5 / 7 / 11; }
-.div4 { grid-area: 8 / 5 / 10 / 11; }
-.div5 { grid-area: 11 / 5 / 15 / 11; }
-.div6 { grid-area: 2 / 12 / 11 / 28; }
-.div7 { grid-area: 12 / 12 / 15 / 28; }
-.div8 { grid-area: 2 / 29 / 10 / 43; }
-.div9 { grid-area: 11 / 29 / 15 / 43; }
+.div1 { grid-area: 1 / 1 / 16 / 4; width: 100%;}
+.div2 { grid-area: 2 / 5 / 4 / 11; width: 100%;}
+.div3 { grid-area: 5 / 5 / 7 / 11; width: 100%;}
+.div4 { grid-area: 8 / 5 / 10 / 11; width: 100%;}
+.div5 { grid-area: 11 / 5 / 15 / 11; width: 100%;}
+.div6 { grid-area: 2 / 12 / 11 / 250; width: 100%;}
+.div7 { grid-area: 12 / 12 / 19 / 28; width: 100%;}
+
+.div7{
+    height: 100px;
+    width: 540px;
+    margin-bottom: 20px;
+}
 
 .div1 {
-    background-color: #330000;
+    background-color: #570808;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
-    gap: 20px;
-    border-right: 2px solid #900000;
+    width: 100px;
+    gap: 25px;
+    border-right: 2px solid #971e1e;
+}
+
+.div2, .div3, .div4{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    width: 300px;
+    height: 100px;
+    justify-content: space-between;
 }
 
 .div1 button {
     background-color: transparent;
-    border: 2px solid #900000;
+    border: 2px solid #971e1e;
     color: white;
     font-size: 16px;
     padding: 10px 20px;
@@ -52,29 +67,35 @@ body{
     cursor: pointer;
     width: 80%;
     transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .div1 button:hover {
-    background-color: #900000;
+    background-color: #360000;
 }
 
 .div1 .ativo {
-    background-color: #aa0000;
+    background-color: #570808;
     font-weight: bold;
-    border: 2px solid #ff3333;
+    border: 2px solid #360000;
 }
 
-.div2, .div3, .div4, .div5, .div6, .div7, .div8, .div9 {
+.div2, .div3, .div4, .div5, .div6, .div7 {
     background-color: #111;
-    border: 2px solid #ff1a1a;
+    border: 2px solid #360000;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 75px;
     box-shadow: 0px 0px 8px #ff1a1a66;
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: bold;
     background-color: rgb(46, 46, 46);
 }
 
@@ -84,11 +105,12 @@ body{
     height: 350px;
     margin: auto;
     background: none;
+    margin-left: 10px;
 }
 canvas#graficoErrosAcertos {
     width: 100% !important;
     height: 100% !important;
-    max-width: 500px;
+    max-width: 650px;
     max-height: 350px;
     background-color: rgb(46, 46, 46);
 }
