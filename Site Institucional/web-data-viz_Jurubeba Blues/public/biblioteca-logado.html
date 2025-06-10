@@ -5,189 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jurubeba Blues | Biblioteca </title>
 
-        <link rel="stylesheet" href="./css/style-biblioteca.css">
-
+    <link rel="stylesheet" href="./css/style-biblioteca.css">
 </head>
 <body>
-    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
 
-  <style>
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-</style>
-
-<div class="header">
-  <div class="logo">
-    Jurubeba Blues
-  </div>
-  <div class="navbar">
-  <div class="inicio">
-    <a href="index.html" class="direcionamentos">Início</a>
-  </div>
-    <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
-        <a id="quizer" href="quiz.html" class="direcionamentos">Quiz</a>
-    <li>|</li>
-    <div id="login" class="login">    
-        <a href="index.html" class="direcionamentos" id="finaliz">Sair</a>
+    <div class="header">
+        <div class="logo">
+            Jurubeba Blues
+        </div>
+        <div class="navbar">
+            <div class="inicio">
+                <a href="index-logado.html" class="direcionamentos">Início</a>
+            </div>
+            <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
+            <a id="quizer" href="quiz.html" class="direcionamentos" style="display: none;">Quiz</a>
+            <li>|</li>
+            <div id="nav-auth-links" class="login"> 
+                <a href="login.html" class="direcionamentos" id="link-login">Login</a>
+                <a href="cadastro.html" class="direcionamentos" id="link-cadastro">Cadastro</a>
+                <span id="saudacao-usuario" style="display: none;"></span> 
+                <a href="#" onclick="limparSessao()" class="direcionamentos" id="link-sair" style="display: none;">Sair</a>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-<main class="main">
 
- <main class="main">
-    <a class="titulo">E aí, como está se sentindo hoje?</a>
-      <h2>Acesse a biblioteca e confira um acervo de músicas!</h2>
+    <main class="main">
+        <a class="titulo">E aí, como está se sentindo hoje?</a>
+        <h2>Acesse a biblioteca e confira um acervo de músicas!</h2>
         <a class="subtitulo">
-          <label for="musicas">Selecione uma música:</label>
-
+            <label for="musicas">Selecione uma música:</label>
         </a>
-      </a>
 
-    
-    <div class="card-musicas">
-
-<div class="musicas" selecionarMusica()>
-  <div class="msg" id = "div_msg1"></div>
+        <div class="card-musicas">
+  <div class="msg" id="div_msg1"></div> 
   <div class="card-spotify" id="div_msg2">
-      </div>
+    
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/71iSmEeF0qRVyULABxP75P?utm_source=generator" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/6mFkJmJqdDVQ1REhVfGgd1?utm_source=generator" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/2gam98EZKrF9XuOkU13ApN?utm_source=generator" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/4nK5YrxbMGZstTLbvj6Gxw?utm_source=generator" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/0cqRj7pUJDkTCEsJkx8snD?utm_source=generator" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/5nTtCOCds6I0PHMNtqelas?utm_source=generator" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b?utm_source=generator" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/1JSTJqkT5qHq8MDJnJbRE1?utm_source=generator" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/0KKkJNfGyhkQ5aFogxQAPU?utm_source=generator" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/1xQ6trAsedVPCdbtDAmk0c?utm_source=generator" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/0e7ipj03S05BNilyu5bRzt?utm_source=generator" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/3Qm86XLflmIXVm1wcwkgDK?utm_source=generator" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/3RiPr603aXAoi4GHyXx0uy?utm_source=generator" width="100%" height="200" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
 </div>
 
-<br>
+        <br>
+    </main>
 
-   </main>
-<hr>
+    <hr>
     <footer>
-      <p class="contato">
-
-        <div class="titulo-footer">
-          Jurubeba Blues<br>
+        <div class="footer-container">
+            <div class="footer-icons">
+                <a href="https://open.spotify.com/user/u4z6aocsog0z6mwemc1o4t3xt?si=053ace2f1b1e434a" target="_blank">
+                    <img src="./assets/imgs/spotify.png" alt="Spotify" class="icon" id="icon-spotify">
+                </a>
+                <a href="https://github.com/JuliaYRocha/Projeto-Individual" target="_blank">
+                    <img src="./assets/imgs/github.png" alt="GitHub" class="icon" id="icon-github">
+                </a>
+                <img src="./assets/imgs/ods1.jpg" alt="ODS 1" class="icon" id="icon-ods1">
+                <img src="./assets/imgs/ods2.jpg" alt="ODS 2" class="icon" id="icon-ods2">
+            </div>
+            <div class="footer-texto">
+                <div class="titulo">
+                    Jurubeba Blues<br>
+                </div>
+                <div class="conteudo-footer">
+                    Contatos: <br>
+                    • julia.rocha@sptech.school <br>
+                    <br><br>
+                </div>
+            </div>
         </div>
-        <div class="conteudo-footer">
-          Contatos: <br>
-          • julia.rocha@sptech.school <br>
-          • (11) 4002-8922 <br><br>
-        </p>
-        </div>
-
     </footer>
 
-</main>
+    <script src="./js/sessao.js"></script>
+    <script>
+        function validarSessaoBiblioteca() {
+            var email = sessionStorage.EMAIL_USUARIO;
+            var nome = sessionStorage.NOME_USUARIO;
+
+            const linkLogin = document.getElementById('link-login');
+            const linkCadastro = document.getElementById('link-cadastro');
+            const saudacaoUsuario = document.getElementById('saudacao-usuario');
+            const linkSair = document.getElementById('link-sair'); 
+            const linkQuiz = document.getElementById('quizer');
+
+            if (email != null && nome != null) {
+                if (linkLogin) linkLogin.style.display = 'none';
+                if (linkCadastro) linkCadastro.style.display = 'none';
+                
+                if (saudacaoUsuario) {
+                    saudacaoUsuario.innerHTML = `Bem-vindo ${nome}`;
+                    saudacaoUsuario.style.display = 'inline'; 
+                }
+                if (linkSair) {
+                    linkSair.style.display = 'inline'; 
+                }
+                if (linkQuiz) {
+                    linkQuiz.style.display = 'inline'; 
+                }
+
+            } else {
+                if (linkLogin) linkLogin.style.display = 'inline'; 
+                if (linkCadastro) linkCadastro.style.display = 'inline'; 
+                
+                if (saudacaoUsuario) saudacaoUsuario.style.display = 'none';
+                if (linkSair) linkSair.style.display = 'none'; 
+                if (linkQuiz) linkQuiz.style.display = 'none'; 
+            }
+        }
+
+        function limparSessao() {
+            sessionStorage.clear();
+            window.location.href = "index.html";
+        }
+    </script>
 </body>
 </html>
-<script>
-    
-    window.onload = function() {
-    fetch("/biblioteca/exibir", {   
-      method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        .then(function(resposta) {
-            if (!resposta.ok) {
-                throw new Error('Erro na requisição');
-            }
-            return resposta.json(); 
-        })
-        .then(function(musicas) {  
-            const selectMusicas = document.getElementById('musicas');
-            const musica = document.getElementById('musica')
-            musicas.forEach(function(musica) {
-              console.log(musica)
-
-              
-                div_msg1 += `<div class="musicas">
-                  ${musica.titulo} - ${musica.autor} <br> (${musica.genero}) </div>`
-                div_msg2.innerHTML += `<div class="musicas">- 
-                <iframe style="border-radius:12px; margin-right: 40%;" src="${musica.link}"
-                width="500" 
-                height="200" 
-                frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy"></iframe></div></div>`;
-              
-                
-              });
-        })
-
-        
-        .catch(function(erro) {
-            console.error('Erro ao buscar músicas:', erro);
-            const selectMusicas = document.getElementById('musicas');
-            selectMusicas.innerHTML = '<option>Erro ao carregar</option>';
-        });
-    };
-
-        validarSessaoIndex()
-    function validarSessaoIndex() {
-    var email = sessionStorage.EMAIL_USUARIO;
-    var nome = sessionStorage.NOME_USUARIO;
-
-
-    if (email != null && nome != null) {
-        document.getElementById('login').innerHTML = `<span> Bem-vindo ${nome}</span>`
-        document.getElementById('quizer').innerHTML = `Quiz`
-    } else {
-        
-    }}
-
-    
-            function carregar(){
-          var usuario = sessionStorage.NOME_USUARIO;
-          mostrarNome.innerHTML = `Bem-Vindo, ${usuario}`;
-      }
-      
-      window.onload = carregar()
-                window.onload = ()=> {
-                    nome_usuario.innerHTML = `Bem-Vindo, ${usuario}`;
-        }
-
-        var listaGeneros = [];
-        
-        function selecionarMusica() {
-              window.onload = function() {
-    fetch("/biblioteca/exibir", {   
-      method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        .then(function(resposta) {
-            if (!resposta.ok) {
-                throw new Error('Erro na requisição');
-            }
-            return resposta.json(); 
-        })
-        .then(function(dados) {  
-            const selectMusicas = document.getElementById('musicas');
-            const musica = document.getElementById('musica')
-            dados.forEach(function(musica) {
-              console.log(musica)
-
-              
-                div_msg.innerHTML += `<div class="musicas">
-                  ${musica.titulo} - ${musica.autor} (${musica.genero}) - 
-                <iframe style="border-radius:12px; margin-right: 40%;" src="${musica.link}"
-                width="50%" 
-                height="200" 
-                frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy"></iframe></div></div>`;
-                
-                
-              });
-        })
-
-        
-        .catch(function(erro) {
-            console.error('Erro ao buscar músicas:', erro);
-            const selectMusicas = document.getElementById('musicas');
-            selectMusicas.innerHTML = '<option>Erro ao carregar</option>';
-        });
-    };
-        
-        }
-
-      </script>

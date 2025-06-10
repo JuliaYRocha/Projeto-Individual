@@ -6,256 +6,301 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-
     <title>Jurubeba Blues | Início</title>
 
     <link rel="stylesheet" href="./css/style-index.css">
-    <script src="./js/sessao.js"></script>
+        <script src="./js/sessao.js"></script>
 </head>
 
 <body>
 
-  <style>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 </style>
 
 <div class="header">
-  <div class="logo">
-    Jurubeba Blues
-  </div>
-  <div class="navbar">
-  <div class="inicio">
-    <a href="index.html" class="direcionamentos">Início</a>
-  </div>
-    <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
-        <a id="quizer" href="quiz.html" class="direcionamentos">Quiz</a>
-    <li>|</li>
-    <div id="login" class="login">    
-    <a href="index.html" class="direcionamentos" id="finaliz">Sair</a>
+    <div class="logo">
+        Jurubeba Blues
     </div>
-  </div>
+    <div class="navbar">
+        <div class="inicio">
+            <a href="index.html" class="direcionamentos">Início</a> 
+        </div>
+        <a href="biblioteca-logado.html" class="direcionamentos">Biblioteca</a>
+        
+        <a id="quizer" href="quiz.html" class="direcionamentos" style="display: none;">Quiz</a>
+        
+        <li>|</li>
+        
+        <div id="nav-auth-links" class="login"> 
+            <a href="login.html" class="direcionamentos" id="link-login">Login</a>
+            <a href="cadastro.html" class="direcionamentos" id="link-cadastro">Cadastro</a>
+            
+            <span id="saudacao-usuario" style="display: none;"></span> 
+            <a href="#" onclick="limparSessao()" class="direcionamentos" id="link-sair" style="display: none;">Sair</a>
+        </div>
+    </div>
 </div>
 
-
-  <main class="main">
+<main class="main">
     <a class="titulo">O meu universo musical para você!</a>
     <a class="subtitulo"><i>“A música é a arte de manifestar os diversos <br>afetos da nossa Alma mediante o som.” <br>
-              Paschoal Bona</i></a><br>
-              <button onclick="sobre()" class="direcionamentos-sobre" id="sobre">Saiba mais</button>
+                Paschoal Bona</i></a><br>
+                <button onclick="sobre()" class="direcionamentos-sobre" id="sobre">Saiba mais</button>
+    
+    <br><br><br>
 
-              <!-- <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2V65y3PX4DkRhy1djlxd9p?utm_source=generator&theme=0" width="15%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> -->
-      
-      <br><br><br>
+    <p href="" class="topico">
+        Veja aqui as 5 melhores músicas! 
+    </p>     
 
-<!-- 
-      <div class="container-musica"> -->
-        <p href="" class="topico">
-          Veja aqui as 5 melhores músicas! 
-        </p>    
-
-        <div class="body-musicas">
-          <div class="container-musicas">
+    <div class="body-musicas">
+        <div class="container-musicas">
 
             <div class="musicas-fav">
-              <a href="" class="musica">
-                <iframe style="border-radius:12px; margin-right: 40%;" src="https://open.spotify.com/embed/track/71iSmEeF0qRVyULABxP75P?utm_source=generator" 
-                width="50%" 
-                height="200" 
-                frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy"></iframe>
-                
-              </a> 
-                    <a href="" class="musica">
-                <iframe style="border-radius:12px; margin-right: 40%;" src="https://open.spotify.com/embed/track/6mFkJmJqdDVQ1REhVfGgd1?utm_source=generator" width="50%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </a>
-                    <a href="" class="musica">
-                <iframe style="border-radius:12px; margin-right: 40%;" 
-                src="https://open.spotify.com/embed/track/2gam98EZKrF9XuOkU13ApN?utm_source=generator" 
-                width="50%" 
-                height="200" 
-                frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy"></iframe>
-              </a> 
-                    <a href="" class="musica">
-                <iframe style="border-radius:12px; margin-right: 40%;" src="https://open.spotify.com/embed/track/42T2QQv3xgBlpQxaSP7lnK?utm_source=generator"
-                width="50%" 
-                height="200" 
-                frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy"></iframe>
-              </a>
-                    <a href="" class="musica">
-                <iframe style="border-radius:12px; margin-right: 40%;" 
-                src="https://open.spotify.com/embed/track/4U45aEWtQhrm8A5mxPaFZ7?utm_source=generator" 
-                width="50%" 
-                height="200" 
-                frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy"></iframe>
-              </a>
+                <a href="" class="musica">
+                    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/71iSmEeF0qRVyULABxP75P?utm_source=generator" 
+                    width="50%" 
+                    height="200" 
+                    frameBorder="0" 
+                    allowfullscreen="" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy"></iframe>
+                </a> 
+                <a href="" class="musica">
+                    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/6mFkJmJqdDVQ1REhVfGgd1?utm_source=generator" width="50%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </a>
+                <a href="" class="musica">
+                    <iframe style="border-radius:12px;" 
+                    src="https://open.spotify.com/embed/track/2gam98EZKrF9XuOkU13ApN?utm_source=generator" 
+                    width="50%" 
+                    height="200" 
+                    frameBorder="0" 
+                    allowfullscreen="" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy"></iframe>
+                </a> 
+                <a href="" class="musica">
+                    <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/track/42T2QQv3xgBlpQxaSP7lnK?utm_source=generator"
+                    width="50%" 
+                    height="200" 
+                    frameBorder="0" 
+                    allowfullscreen="" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy"></iframe>
+                </a>
+                <a href="" class="musica">
+                    <iframe style="border-radius:12px;" 
+                    src="https://open.spotify.com/embed/track/4U45aEWtQhrm8A5mxPaFZ7?utm_source=generator" 
+                    width="50%" 
+                    height="200" 
+                    frameBorder="0" 
+                    allowfullscreen="" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy"></iframe>
+                </a>
             </div>
             
-          </div>
-          
-          <div class="container-significados"> 
-            <div class="significados">           
-  A música Shake It Out é importante, porque me lembra de momentos difíceis que podem ser contornados se você "chacoalhar", ou seja, se livrar dessa visão ou forma de lidar 
-  com a situação. 
-  <br> "Shake it out, shake it out, and it's hard to dance with the devil on your back, so shake it out[...]"
-  <i>"Chacoalhe, chacoalhe, e é difícil dançar com o diabo em suas costas, então chacoalhe."</i>
-  </div>  
-            <div class="significados">
-  Wish You Were Here é uma música que me lembra da minha avó, que faleceu ano passado. Fala sobre desejar que alguém estivesse com você ou ao seu lado.
- <br> "And how I wish, how I wish you were here, we're just two lost souls, swimming in a fish bowl year after year[...]"
-  <i>"E como eu queria, como eu queria que você estivesse aqui, nós somos apenas duas almas perdidas, nadando num aquário ano após ano."</i>
-   </div>  
-            <div class="significados">
-  Promiscuous é uma música escrita por uma mulher tida como refêrencia no mundo pop, a Nelly Furtado. Foi um ícone nos anos 2000, e foi inspiração de muitas meninas da época. Eu não sou diferente disso, e essa música, é o meu maior incentivo para minha autoestima, mostrando sempre um lado icônico de todas as mulheres.
-  <br>"Hey, I want you on my team! So does everybody else![...]"
-  <i>"Ei, eu te quero no meu time! Todo mundo também."</i>
-   </div>           
-  <div class="significados">
-  One last breath é uma música que fala sobre uma busca por salvação e redenção, colocando muito sentimento e sendo uma música muito importante pra mim, porque eu acredito que todos já estiveram numa posição semelhante. Sempre é importante procurar por ajuda e essa música traz muito disso.
- <br> "Hold me now, I'm six foot from the edge, and I was thinking, maybe six feet ain't so far down.[...]"
-  <i>"Me abrace, estou à seis passos do precipício, e estava pensando que talvez seis passos não sejam tão distantes."</i>
-   </div>           
-  <div class="significados">
-  Vienna, do Billy Joel, é sem dúvidas a minha música favorita. É uma música que reflete diretamente na minha vida e minha forma de pensar. Acredito que todos somos acelerados demais e acabamos nos esquecendo de ir mais devagar e esperar o nosso tempo.
-  <br>"Slow down, your crazy child. You're so ambicious for a juvenile, but if you're so smart, then why do you still so afraid?[...]"
-  <i>"Desacelere, sua criança doida. Você é ambiciosa demais para um juvenil, mas se você é tão inteligente, então, por que você continua com tanto medo?"</i>
-           </div>  
-           </div>
         </div>
+        
+        <div class="container-significados"> 
+            <div class="significados">          
+                A música Shake It Out é importante, porque me lembra de momentos difíceis que podem ser contornados se você "chacoalhar", ou seja, se livrar dessa visão ou forma de lidar 
+                com a situação. 
+                <br> "Shake it out, shake it out, and it's hard to dance with the devil on your back, so shake it out[...]"
+                <i>"Chacoalhe, chacoalhe, e é difícil dançar com o diabo em suas costas, então chacoalhe."</i>
+            </div>    
+            <div class="significados">
+                Wish You Were Here é uma música que me lembra da minha avó, que faleceu ano passado. Fala sobre desejar que alguém estivesse com você ou ao seu lado.
+                <br> "And how I wish, how I wish you were here, we're just two lost souls, swimming in a fish bowl year after year[...]"
+                <i>"E como eu queria, como eu queria que você estivesse aqui, nós somos apenas duas almas perdidas, nadando num aquário ano após ano."</i>
+            </div>    
+            <div class="significados">
+                Promiscuous é uma música escrita por uma mulher tida como refêrencia no mundo pop, a Nelly Furtado. Foi um ícone nos anos 2000, e foi inspiração de muitas meninas da época. Eu não sou diferente disso, e essa música, é o meu maior incentivo para minha autoestima, mostrando sempre um lado icônico de todas as mulheres.
+                <br>"Hey, I want you on my team! So does everybody else![...]"
+                <i>"Ei, eu te quero no meu time! Todo mundo também."</i>
+            </div>         
+            <div class="significados">
+                One last breath é uma música que fala sobre uma busca por salvação e redenção, colocando muito sentimento e sendo uma música muito importante pra mim, porque eu acredito que todos já estiveram numa posição semelhante. Sempre é importante procurar por ajuda e essa música traz muito disso.
+                <br> "Hold me now, I'm six foot from the edge, and I was thinking, maybe six feet ain't so far down.[...]"
+                <i>"Me abrace, estou à seis passos do precipício, e estava pensando que talvez seis passos não sejam tão distantes."</i>
+            </div>         
+            <div class="significados">
+                Vienna, do Billy Joel, é sem dúvidas a minha música favorita. É uma música que reflete diretamente na minha vida e minha forma de pensar. Acredito que todos somos acelerados demais e acabamos nos esquecendo de ir mais devagar e esperar o nosso tempo.
+                <br>"Slow down, your crazy child. Você é tão ambiciosa para um juvenil, mas se você é tão inteligente, então, por que você ainda tem tanto medo?"
+                <i>"Desacelere, sua criança doida. Você é ambiciosa demais para um juvenil, mas se você é tão inteligente, então, por que você continua com tanto medo?"</i>
+            </div>    
         </div>
-
-      <br><br><br><br>
+    </div>
+</main>
+<br><br><br><br>
 
 <hr>
-      <p class="topico">
+    <p class="topico">
         Identidade e Cultura
-      </p>
+    </p>
 
-      <div class="card">
-
+    <div class="card">
         <div class="missao">
-          <p class="titulo-card">
-            Missão
+            <p class="titulo-card">
+                Missão
             </p>
             <p class="texto-card">
-              A missão do Jurubeba Blues é espalhar a música e contagiar todo mundo com melodias incríveis, para tocar o coração e agradar cada indivíduo.
+                A missão do Jurubeba Blues é espalhar a música e contagiar todo mundo com melodias incríveis, para tocar o coração e agradar cada indivíduo.
             </p>
         </div>
 
         <div class="valores">
-          <p class="titulo-card">
-            Valores
+            <p class="titulo-card">
+                Valores
             </p>
             <p class="texto-card">
-              O Jurubeba Blues valoriza a expressão da pessoa como indivíduo na sociedade, sobre ter o poder de ser quem você é, e se identificar com músicas idênticas a você, indivíduo.
+                O Jurubeba Blues valoriza a expressão da pessoa como indivíduo na sociedade, sobre ter o poder de ser quem você é, e se identificar com músicas idênticas a você, indivíduo.
             </p> 
         </div>
 
-          <div class="objetivo">
+        <div class="objetivo">
             <p class="titulo-card">
-              Objetivo
-              </p>
-              <p class="texto-card">
-                O objetivo do Jurubeba Blues é fornecer meios para as pessoas se expressarem e se sentirem livres, através das músicas.
-              </p>
-          </div>
-
-      </div>
-
-      <hr>
-      
-
-      <div id="div.sobre" class="sobre">
-
-        <div id="div" class="titulo">
-          <h1>Sobre a Jurubeba Blues</h1>
-        </div>
-        
-        <div id="div" class="container-musicas-sobre">
-          <div id="div" class="texto">
-            A música sempre foi muito importante na minha vida, e sempre foi presente. <br><br>
-            Meu interesse por música vêm desde criança, e sempre tive uma ligação forte. <br><br> 
-            A presença da música na minha vida uniu a minha família e meus amigos. Minha paixão pela música aumentava a cada dia que passava e comecei a tocar piano e violão, <br>
-            o que só contribuiu para aumentar meu interesse.<br>
-            Eu sempre quis criar um espaço onde as pessoas pudessem se sentir à vontade para encontrar músicas diferentes, 
-            onde eu pudesse compartilhar as minhas músicas, que eu me identifico. <br><br>
-            Eu sempre amei a música e sempre esteve presente na minha vida, e é por isso que eu criei o Jurubeba Blues: <br>
-            Para que as pessoas tenham momentos de alegria, tristeza, reflexão e diversão através da música. <br>
-            Para que as pessoas também unissem a família para ouvir músicas e cantar músicas, <br>
-            Para que, assim como eu, se encontrassem no universo musical. <br>
-            <br>
-            O projeto se chama Jurubeba Blues, porque é um apelido de infância, dado por uma tia avó, que foi muito importante na minha relação com a música.<br>
-            Na casa dela, tem um quarto onde ela guardava os discos de vinil e CDs, e eu sempre ia lá para ouvir música, porém, ela mora longe, então as visitas são raras.<br>
-            É uma pessoa que faz falta no meu dia a dia, mas que sempre estará presente na minha memória e no meu coração, por isso, decidi que o nome ideal para o projeto seria uma homenagem para minha querida "Tia Ieda".<br>
-            <br>
-            Um dos momentos mais memoráveis da minha vida foi quando eu e minha família nos reunimos para cantar a música "Fazendinha", do Mundo Bita para meu sobrinho, a pessoa mais importante da minha vida.<br>
-            Quando nasceu, houveram complicações e ele ficou internado por um tempo. <br>
-            A música foi um dos meios que achei para me confortar, e que me ajudou a passar por esse momento difícil. <br>
-            <br>
-            Assim como eu, acredito que muitas pessoas tenham histórias e momentos marcantes com a música. <br>
-            E por essa razão, eu quero que o Jurubeba Blues seja um espaço onde as pessoas possam se sentir à vontade para enxergar suas histórias e criar momentos marcantes com a música. <br>            
-          </div>
-        </div>
-      </div>
-      <footer>
-        <br>
-        <hr>
-        <br><br>
-
-        <div class="footer">
-      
-          <p class="contato">
-      
-            <div class="titulo-footer">
-              Jurubeba Blues<br>
-            </div>
-            <div class="conteudo-footer">
-              Contatos: <br>
-              • julia.rocha@sptech.school <br>
-              • (11) 4002-8922 <br> <br><br>
+                Objetivo
             </p>
+            <p class="texto-card">
+                O objetivo do Jurubeba Blues é fornecer meios para as pessoas se expressarem e se sentirem livres, através das músicas.
+            </p>
+        </div>
+    </div>
+
+    <hr>
+    
+<div id="section-sobre" class="sobre">
+
+    <div class="titulo">
+        <h1>Sobre a Jurubeba Blues</h1>
+    </div>
+
+    
+  <div id="div" class="container-musicas-sobre">
+  <div id="div" class="texto">
+    A música sempre foi muito importante na minha vida, e sempre foi presente. <br><br>
+    Meu interesse por música vêm desde criança, e sempre tive uma ligação forte. <br><br>
+    A presença da música na minha vida uniu a minha família e meus amigos. Minha paixão pela música aumentava a cada dia que passava e comecei a tocar piano e violão, <br>
+    o que só contribuiu para aumentar meu interesse.<br>
+    Eu sempre quis criar um espaço onde as pessoas pudessem se sentir à vontade para encontrar músicas diferentes,
+    onde eu pudesse compartilhar as minhas músicas, que eu me identifico. <br><br>
+    Eu sempre amei a música e sempre esteve presente na minha vida, e é por isso que eu criei o Jurubeba Blues: <br>
+    Para que as pessoas tenham momentos de alegria, tristeza, reflexão e diversão através da música. <br>
+    Para que as pessoas também unissem a família para ouvir músicas e cantar músicas, <br>
+    Para que, assim como eu, se encontrassem no universo musical. <br>
+    <br>
+    O projeto se chama Jurubeba Blues, porque é um apelido de infância, dado por uma tia avó, que foi muito importante na minha relação com a música.<br>
+    Na casa dela, tem um quarto onde ela guardava os discos de vinil e CDs, e eu sempre ia lá para ouvir música, porém, ela mora longe, então as visitas são raras.<br>
+    É uma pessoa que faz falta no meu dia a dia, mas que sempre estará presente na minha memória e no meu coração, por isso, decidi que o nome ideal para o projeto seria uma homenagem para minha querida "Tia Ieda".<br>
+    <br>
+    Um dos momentos mais memoráveis da minha vida foi quando eu e minha família nos reunimos para cantar a música "Fazendinha", do Mundo Bita para meu sobrinho, a pessoa mais importante da minha vida.<br>
+    Quando nasceu, houveram complicações e ele ficou internado por um tempo. <br>
+    A música foi um dos meios que achei para me confortar, e que me ajudou a passar por esse momento difícil. <br>
+    <br>
+    Assim como eu, acredito que muitas pessoas tenham histórias e momentos marcantes com a música. <br>
+    E por essa razão, eu quero que o Jurubeba Blues seja um espaço onde as pessoas possam se sentir à vontade para enxergar suas histórias e criar momentos marcantes com a música.
+  </div>
+
+  <div class="video-container">
+    <video controls style="max-width: 100%; height: auto;">
+      <source src="./assets/imgs/videos/piano.mp4" type="video/mp4">
+      Vídeo tocando piano
+    </video>
+  </div>
+</div>
+
+  <div class="container-midia-sobre">
+    <h2>Minha Galeria</h2>
+    <div class="media-item">
+      <img src="./assets/imgs/eu_piano.jpg" alt="Tocando piano">
+      <p>Uma das minhas apresentações.</p>
+    </div>
+    <div class="media-item">
+      <img src="./assets/imgs/tia-ieda.jpg" alt="Tia Ieda">
+      <p>Minha tia Ieda</p>
+    </div>
+    </div>
+
+</div>
+<hr>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-icons">
+                <a href="https://open.spotify.com/user/u4z6aocsog0z6mwemc1o4t3xt?si=053ace2f1b1e434a" target="_blank">
+                    <img src="./assets/imgs/spotify.png" alt="Spotify" class="icon" id="icon-spotify">
+                </a>
+                <a href="https://github.com/JuliaYRocha/Projeto-Individual" target="_blank">
+                    <img src="./assets/imgs/github.png" alt="GitHub" class="icon" id="icon-github">
+                </a>
+                <img src="./assets/imgs/ods1.jpg" alt="ODS 1" class="icon" id="icon-ods1">
+                <img src="./assets/imgs/ods2.jpg" alt="ODS 2" class="icon" id="icon-ods2">
+            </div>
+            <div class="footer-texto">
+                <div class="titulo">
+                    Jurubeba Blues<br>
+                </div>
+                <div class="conteudo-footer">
+                    Contatos: <br>
+                    • julia.rocha@sptech.school <br>
+                    <br><br>
+                </div>
             </div>
         </div>
-      
-      </footer>
-    </main>
+    </footer>
 
-    <script>
+<script src="./js/sessao.js"></script>
+<script>
     function sobre(){
-    const sobrePag = document.getElementById('div.sobre')
-
-    if(sobrePag){
-    sobrePag.scrollIntoView({behavior:"smooth"})
+        const sobrePag = document.getElementById('section-sobre');
+        if(sobrePag){
+            sobrePag.scrollIntoView({behavior:"smooth"});
+        }
     }
-    }
 
-    validarSessaoIndex()
+    document.addEventListener('DOMContentLoaded', validarSessaoIndex);
     
     function validarSessaoIndex() {
-    var email = sessionStorage.EMAIL_USUARIO;
-    var nome = sessionStorage.NOME_USUARIO;
+        var email = sessionStorage.EMAIL_USUARIO;
+        var nome = sessionStorage.NOME_USUARIO;
 
+        const linkLogin = document.getElementById('link-login');
+        const linkCadastro = document.getElementById('link-cadastro');
+        const saudacaoUsuario = document.getElementById('saudacao-usuario');
+        const linkSair = document.getElementById('link-sair'); 
+        const linkQuiz = document.getElementById('quizer');
 
-    if (email != null && nome != null) {
-        document.getElementById('login').innerHTML = `<span> Bem-vindo ${nome}</span>`
-        document.getElementById('quizer').innerHTML = `Quiz`
-        document.getElementById('finaliz').innerHTML = `<button id="finalizarSessao" onclick="limparSessao()" class="sessao">Finalizar Sessão</button>`
+        if (email != null && nome != null) {
+            if (linkLogin) linkLogin.style.display = 'none';
+            if (linkCadastro) linkCadastro.style.display = 'none';
+            
+            if (saudacaoUsuario) {
+                saudacaoUsuario.innerHTML = `Bem-vindo ${nome}`;
+                saudacaoUsuario.style.display = 'inline'; 
+            }
+            if (linkSair) {
+                linkSair.style.display = 'inline'; 
+            }
+            if (linkQuiz) {
+                linkQuiz.style.display = 'inline'; 
+            }
 
-    } else {
-      document.getElementById('finaliz').innerHTML = ''  
+        } else {
+            if (linkLogin) linkLogin.style.display = 'inline'; 
+            if (linkCadastro) linkCadastro.style.display = 'inline'; 
+            
+            if (saudacaoUsuario) saudacaoUsuario.style.display = 'none';
+            if (linkSair) linkSair.style.display = 'none'; 
+            if (linkQuiz) linkQuiz.style.display = 'none'; 
+        }
     }
-  }
 
-  
+    function limparSessao() {
+        sessionStorage.clear();
+        window.location.href = "index.html";
+    }
+</script>
 
-    </script>
+</body>
+</html>

@@ -196,3 +196,33 @@ h1 {
     color: var(--branco)
 }
 
+footer {
+  padding: 30px 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.footer-icons {
+  position: absolute;
+  left: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.footer-icons .icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.footer-texto {
+  text-align: center;
+}
+

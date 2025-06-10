@@ -185,15 +185,32 @@ h1 {
     color:#360000;
 }
 
-.titulo-footer {
-    width: 100%;
-    color: var(--branco);
-    font-size: 5vh;
-    font-weight: 700;
+footer {
+  padding: 30px 20px;
 }
-.conteudo-footer {
-    display: flex;
-    color: var(--branco);
-    font-size: smaller;
-    margin-left: 93vh;
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.footer-icons {
+  position: absolute;
+  left: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.footer-icons .icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.footer-texto {
+  text-align: center;
 }

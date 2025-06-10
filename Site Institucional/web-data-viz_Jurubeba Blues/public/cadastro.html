@@ -5,44 +5,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
 
     <title>Jurubeba Blues | Cadastro</title>
     <script src="./js/sessao.js"></script>
     <link rel="stylesheet" href="./css/style-cadastro.css">
-    
+
 </head>
 
 <body>
 
-  <style>
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-</style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
 
-<div class="header">
-  <div class="logo">
-    Jurubeba Blues
-  </div>
-  <div class="navbar">
-  <div class="inicio">
-    <a href="index.html" class="direcionamentos">Início</a>
-  </div>
-    <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
-    <li>|</li>
-    <a id="quizer" href="quiz.html" class="direcionamentos"></a>
-    <div id="login" class="login">    
-    <a href="login.html" class="direcionamentos">Login</a>
-    <a href="cadastro.html" class="direcionamentos">Cadastro</a>
+    <div class="header">
+        <div class="logo">
+            Jurubeba Blues
+        </div>
+        <div class="navbar">
+            <div class="inicio">
+                <a href="index.html" class="direcionamentos">Início</a>
+            </div>
+            <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
+            <li>|</li>
+            <a id="quizer" href="quiz.html" class="direcionamentos"></a>
+            <div id="login" class="login">
+                <a href="login.html" class="direcionamentos">Login</a>
+                <a href="cadastro.html" class="direcionamentos">Cadastro</a>
+            </div>
+            <span id="nome_usuario"></span>
+        </div>
     </div>
-  </div>
-</div>
 
 
-  <main class="main">
-    <a class="titulo">É novo por aqui? CADASTRE-SE! </a>
+    <main class="main">
+        <a class="titulo">É novo por aqui? CADASTRE-SE! </a>
 
         <div class="card-cadastro">
-          <br>  
+            <br>
             <a class="topico">
                 Preencha todos os campos abaixo:
             </a>
@@ -52,139 +52,139 @@
             </a>
             <a class="item">
                 E-mail:<br>
-                <input class="input" type="text" id="input_email" placeholder="email@email.com"> 
+                <input class="input" type="text" id="input_email" placeholder="email@email.com">
 
             </a>
             <a class="item">
                 Senha:<br>
                 <input class="input" type="password" id="input_senha" placeholder="*******">
-                
+
             </a>
             <a class="item">
                 Confirmação de senha:<br>
                 <input class="input" type="password" id="input_confirmacao" placeholder="*******">
-                
+
             </a>
-<br>
+            <br>
             <a class="botao-cadastro" onclick="cadastrar()">Cadastre-se</a>
             <br>
-          </div>
-          <br><br>
-          <hr> 
+        </div>
+        <br><br>
+        <hr>
         <br>
         <footer>
-          <p class="contato">
-    
-            <div class="titulo">
-              Jurubeba Blues<br>
+            <div class="footer-container">
+                <div class="footer-icons">
+                    <a href="https://open.spotify.com/user/u4z6aocsog0z6mwemc1o4t3xt?si=053ace2f1b1e434a" target="_blank">
+                        <img src="./assets/imgs/spotify.png" alt="Spotify" class="icon" id="icon-spotify">
+                    </a>
+                    <a href="https://github.com/JuliaYRocha/Projeto-Individual" target="_blank">
+                        <img src="./assets/imgs/github.png" alt="GitHub" class="icon" id="icon-github">
+                    </a>
+                    <img src="./assets/imgs/ods1.jpg" alt="ODS 1" class="icon" id="icon-ods1">
+                    <img src="./assets/imgs/ods2.jpg" alt="ODS 2" class="icon" id="icon-ods2">
+                </div>
+                <div class="footer-texto">
+                    <div class="titulo">
+                        Jurubeba Blues<br>
+                    </div>
+                    <div class="conteudo-footer">
+                        Contatos: <br>
+                        • julia.rocha@sptech.school <br>
+                        <br><br>
+                    </div>
+                </div>
             </div>
-            <div class="conteudo-footer">
-              Contatos: <br>
-              • julia.rocha@sptech.school <br>
-              • (11) 4002-8922 <br><br><br>
-            </p>
-            </div>
-    
         </footer>
 
     </main>
-    
+
+    <div id="div_aguardar">
+        <div class="spinner"></div>
+        <span>Aguarde...</span>
+    </div>
+
     <script>
 
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaUsuariosCadastrados = [];
+        let listaUsuariosCadastrados = [];
 
-  function cadastrar() {
-    aguardar();
+        function cadastrar() {
+            aguardar();
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = input_nome.value;
-    // console.log(input_nome.value  )
-    // console.log(nomeVar);
-    var emailVar = input_email.value;
-    var senhaVar = input_senha.value;
-    var confirmacaoSenhaVar = input_confirmacao.value;
+            var nomeVar = input_nome.value;
+            var emailVar = input_email.value;
+            var senhaVar = input_senha.value;
+            var confirmacaoSenhaVar = input_confirmacao.value;
 
-    // Verificando se há algum campo em branco
-   if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" 
-    ) {
-      // cardErro.style.display = "block";
-      // mensagem_erro.innerHTML =
-      //   "(Mensagem de erro para todos os campos em branco)";
+            if (
+                nomeVar == "" ||
+                emailVar == "" ||
+                senhaVar == "" ||
+                confirmacaoSenhaVar == ""
+            ) {
+                finalizarAguardar();
+                return false;
+            }
 
-      finalizarAguardar();
-      return false; } // Problematic brace here
-    }
+            // // Verificando se o código de ativação é de alguma empresa cadastrada
+            // for (let i = 0; i < listaUsuariosCadastrados.length; i++) {
+            //   if (listaUsuariosCadastrados[i].codigo_ativacao == musicaFav) {
+            //     idEmpresaVincular = listaUsuariosCadastrados[i].id
+            //     console.log("Código de ativação válido.");
+            //     break;
+            //   } else {
+            //     cardErro.style.display = "block";
+            //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+            //     finalizarAguardar();
+            //   }
+            // }
 
-    // // Verificando se o código de ativação é de alguma empresa cadastrada
-    // for (let i = 0; i < listaUsuariosCadastrados.length; i++) {
-    //   if (listaUsuariosCadastrados[i].codigo_ativacao == musicaFav) {
-    //     idEmpresaVincular = listaUsuariosCadastrados[i].id
-    //     console.log("Código de ativação válido.");
-    //     break;
-    //   } else {
-    //     cardErro.style.display = "block";
-    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-    //     finalizarAguardar();
-    //   }
-    // }
+            fetch("/usuarios/cadastrar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        nomeServer: nomeVar,
+                        emailServer: emailVar,
+                        senhaServer: senhaVar
+                    }),
+                })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
 
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
+                    // if (resposta.ok) {
+                    //   cardErro.style.display = "block";
 
-        // if (resposta.ok) {
-        //   cardErro.style.display = "block";
+                    //   mensagem_erro.innerHTML =
+                    //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-        //   mensagem_erro.innerHTML =
-        //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000");
 
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
-        // } else {
-        //   throw "Houve um erro ao tentar realizar o cadastro!";
-        // }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
+                    limparFormulario();
+                    finalizarAguardar();
+                    // } else {
+                    //   throw "Houve um erro ao tentar realizar o cadastro!";
+                    // }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+        }
 
 
-
-              function carregar(){
+        function carregar() {
             var usuario = sessionStorage.NOME_USUARIO;
-            mostrarNome.innerHTML = `Bem-Vindo, ${usuario}`;
+          
         }
 
         window.onload = carregar()
-                  window.onload = ()=>{
-                    var usuario = sessionStorage.NOME_USUARIO;
-                    nome_usuario.innerHTML = `Bem-Vindo, ${usuario}`;
+        window.onload = () => {
+            var usuario = sessionStorage.NOME_USUARIO;
+           
         }
-
-  
-
-
-</script>
+    </script>
+</body>
+</html>
