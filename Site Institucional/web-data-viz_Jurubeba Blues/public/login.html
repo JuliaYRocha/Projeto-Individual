@@ -24,15 +24,16 @@
     Jurubeba Blues
   </div>
   <div class="navbar">
-      <a href="index.html" class="direcionamentos">Início</a>
-      <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
-          <li>|</li>
-      <div class="login-btn">    
-          <div class="login">
-          <a href="login.html" class="direcionamentos">Login</a>
-        </div>
+  <div class="inicio">
+    <a href="index.html" class="direcionamentos">Início</a>
+  </div>
+    <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
+    <li>|</li>
+    <a id="quizer" href="quiz.html" class="direcionamentos"></a>
+    <div id="login" class="login">    
+    <a href="login.html" class="direcionamentos">Login</a>
+    <a href="cadastro.html" class="direcionamentos">Cadastro</a>
     </div>
-              <a href="cadastro.html" class="direcionamentos">Cadastro</a>
   </div>
 </div>
 
@@ -47,12 +48,12 @@
             </p>
             <p class="item">
                 E-mail:<br>
-                <input class="input" type="text" id="input_email"> 
+                <input class="input" type="text" id="input_email" placeholder="email@email.com"> 
 
             </p>
             <p class="item">
                 Senha:<br>
-                <input class="input" type="password" id="input_senha">
+                <input class="input" type="password" id="input_senha" placeholder="*******">
                 
             </p>
 
@@ -68,14 +69,13 @@
         <footer>
           <p class="contato">
     
-            <div class="titulo-footer">
+            <div class="titulo">
               Jurubeba Blues<br>
             </div>
             <div class="conteudo-footer">
               Contatos: <br>
               • julia.rocha@sptech.school <br>
-              • (11) 4002-8922 <br>
-             <br><br>
+              • (11) 4002-8922 <br><br><br>
             </p>
             </div>
     
@@ -186,7 +186,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location.href = "index.html"
+                        window.location.href = "index-logado.html"
                     }, 1000); 
 
                 });
