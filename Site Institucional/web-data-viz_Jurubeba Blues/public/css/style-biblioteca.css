@@ -6,7 +6,8 @@ body {
     font-size: 20px;
     color: #fff;
     font-family: poppins, sans-serif; 
-    /* height: 100vh; */
+    background: linear-gradient(to bottom, #570808, black);
+
 }
 
  :root {
@@ -21,22 +22,14 @@ body {
 
 } 
 
-/* .linha {
-    height: 3%;
-    width: 100%;
-    background-color: var(--bordo);
-} */
-
 .logo {
     display: flex;
-    /* margin-left: 1%; */
 
     text-align: center;
     margin-top: 0.5vh;
 
     font-size: larger;
     font-weight: 700;
-    /* flex-direction: column; */
 }
 
 .header {
@@ -51,7 +44,6 @@ body {
     color: var(--branco);
     background-color: var(--bordo);
     
-    /* box-shadow: 2px 2px 5px black, -2px -2px 5px gray; */
 }
 
 .header a {
@@ -60,11 +52,14 @@ body {
     margin-right: 5vh;
 }
 
+.header li{
+    list-style-type: none;
+}
+
 .navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    /* padding: 15%; */
     gap: 1vh;
     align-items: center;
     text-align: center;
@@ -75,14 +70,14 @@ body {
     width: 100%;
     height: 100%;
     text-align: center;
-    background: linear-gradient(to bottom, #570808, black);
-
+    justify-items: center;
+    margin-right: 10%;
 }
 
 .main .titulo {
     display: flex;
+    text-align: center;
     justify-content: center;
-    /* margin-left: 10%; */
     padding: 10vh 0 2vh 0;
     font-size: 45px;
     font-weight: bolder;
@@ -90,8 +85,8 @@ body {
 
 .main .subtitulo {
     display: flex;
+    text-align: center;
     justify-content: center;
-    /* margin-right: 35%; */
     padding: 0 4vh; 
     position: relative;
     font-style: italic;
@@ -109,13 +104,11 @@ body {
     margin-left: 10%;
     padding-top: 5%;
     padding: 50px;
-    /* gap: 30px; */
 
     border: solid 2px #1F0000;
     border-radius: 30px;
     
     background-color: #eae7db;
-    /* padding: 50%; */
 
 }
 
@@ -128,7 +121,6 @@ body {
     height: 150px;
     min-width: fit-content;
     flex-direction: column;
-    /* align-items: center; */
     color: #1F0000;
     margin-left: 1px;
 }
