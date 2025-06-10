@@ -24,20 +24,19 @@
     Jurubeba Blues
   </div>
   <div class="navbar">
-      <a href="index.html" class="direcionamentos">Início</a>
-      <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
-      <div class="login">    
-          <a href="login.html" class="direcionamentos">Login</a>
-          <div class="cadastro-">
-              <a href="cadastro.html" class="direcionamentos">Cadastro</a>
-            </div>
+  <div class="inicio">
+    <a href="index.html" class="direcionamentos">Início</a>
+  </div>
+    <a href="biblioteca.html" class="direcionamentos">Biblioteca</a>
+    <li>|</li>
+    <a id="quizer" href="quiz.html" class="direcionamentos"></a>
+    <div id="login" class="login">    
+    <a href="login.html" class="direcionamentos">Login</a>
+    <a href="cadastro.html" class="direcionamentos">Cadastro</a>
     </div>
   </div>
 </div>
 
-<div id="cardErro" style="display:none;">
-  <span id="mensagem_erro"></span>
-</div>
 
   <main class="main">
     <a class="titulo">É novo por aqui? CADASTRE-SE! </a>
@@ -49,46 +48,44 @@
             </a>
             <a class="item">
                 Nome de usuário:<br>
-                <input class="input" type="text" id="input_nome">
+                <input class="input" type="text" id="input_nome" placeholder="Seu nome aqui">
             </a>
             <a class="item">
                 E-mail:<br>
-                <input class="input" type="text" id="input_email"> 
+                <input class="input" type="text" id="input_email" placeholder="email@email.com"> 
 
             </a>
             <a class="item">
                 Senha:<br>
-                <input class="input" type="password" id="input_senha">
+                <input class="input" type="password" id="input_senha" placeholder="*******">
                 
             </a>
             <a class="item">
                 Confirmação de senha:<br>
-                <input class="input" type="password" id="input_confirmacao">
+                <input class="input" type="password" id="input_confirmacao" placeholder="*******">
                 
             </a>
 <br>
             <a class="botao-cadastro" onclick="cadastrar()">Cadastre-se</a>
-                    <div id="div_aguardar" class="loading-div">
-        </div>
-
-        <div id="div_erros_login"></div>
-      </div>
-
             <br>
           </div>
           <br><br>
           <hr> 
         <br>
-<footer>
-  <div class="contato">
-    <div class="titulo">Jurubeba Blues<br></div>
-    <div class="conteudo-footer">
-      Contatos: <br>
-      • julia.rocha@sptech.school <br>
-      • (11) 4002-8922 <br><br><br>
-    </div>
-  </div>
-</footer>
+        <footer>
+          <p class="contato">
+    
+            <div class="titulo">
+              Jurubeba Blues<br>
+            </div>
+            <div class="conteudo-footer">
+              Contatos: <br>
+              • julia.rocha@sptech.school <br>
+              • (11) 4002-8922 <br><br><br>
+            </p>
+            </div>
+    
+        </footer>
 
     </main>
     
@@ -98,57 +95,81 @@
   let listaUsuariosCadastrados = [];
 
   function cadastrar() {
-  aguardar();
+    aguardar();
 
-  var nomeVar = document.getElementById("input_nome").value;
-  var emailVar = document.getElementById("input_email").value;
-  var senhaVar = document.getElementById("input_senha").value;
-  var confirmacaoSenhaVar = document.getElementById("input_confirmacao").value;
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = input_nome.value;
+    // console.log(input_nome.value  )
+    // console.log(nomeVar);
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+    var confirmacaoSenhaVar = input_confirmacao.value;
 
-  if (
-    nomeVar == "" ||
-    emailVar == "" ||
-    senhaVar == "" ||
-    confirmacaoSenhaVar == ""
-  ) {
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-    finalizarAguardar();
-    return false;
-  }
+    // Verificando se há algum campo em branco
+   if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" 
+    ) {
+      // cardErro.style.display = "block";
+      // mensagem_erro.innerHTML =
+      //   "(Mensagem de erro para todos os campos em branco)";
 
-  fetch("/usuarios/cadastrar", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      nomeServer: nomeVar,
-      emailServer: emailVar,
-      senhaServer: senhaVar
-    }),
-  })
-    .then(function (resposta) {
-      console.log("resposta: ", resposta);
+      finalizarAguardar();
+      return false; } // Problematic brace here
+    }
 
-      if (resposta.ok) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+    // // Verificando se o código de ativação é de alguma empresa cadastrada
+    // for (let i = 0; i < listaUsuariosCadastrados.length; i++) {
+    //   if (listaUsuariosCadastrados[i].codigo_ativacao == musicaFav) {
+    //     idEmpresaVincular = listaUsuariosCadastrados[i].id
+    //     console.log("Código de ativação válido.");
+    //     break;
+    //   } else {
+    //     cardErro.style.display = "block";
+    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+    //     finalizarAguardar();
+    //   }
+    // }
 
-        setTimeout(() => {
-          window.location = "login.html";
-        }, 2000);
-
-        limparFormulario();
-        finalizarAguardar();
-      } else {
-        throw "Houve um erro ao tentar realizar o cadastro!";
-      }
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
     })
-    .catch(function (resposta) {
-      console.log(`#ERRO: ${resposta}`);
-    });
-}
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        // if (resposta.ok) {
+        //   cardErro.style.display = "block";
+
+        //   mensagem_erro.innerHTML =
+        //     "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        // } else {
+        //   throw "Houve um erro ao tentar realizar o cadastro!";
+        // }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
 
 
 
@@ -157,13 +178,11 @@
             mostrarNome.innerHTML = `Bem-Vindo, ${usuario}`;
         }
 
-window.onload = () => {
-  var usuario = sessionStorage.NOME_USUARIO;
-  let nome_usuario = document.getElementById("nome_usuario"); // coloque um id no HTML
-  if (nome_usuario) {
-    nome_usuario.innerHTML = `Bem-Vindo, ${usuario}`;
-  }
-};
+        window.onload = carregar()
+                  window.onload = ()=>{
+                    var usuario = sessionStorage.NOME_USUARIO;
+                    nome_usuario.innerHTML = `Bem-Vindo, ${usuario}`;
+        }
 
   
 
