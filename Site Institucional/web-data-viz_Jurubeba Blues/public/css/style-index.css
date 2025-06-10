@@ -5,8 +5,7 @@ body {
     padding: 0;
     font-size: 20px;
     color: #fff;
-    font-family: poppins, sans-serif; 
-    /* height: 100vh; */
+    font-family: poppins, sans-serif;
 }
 
  :root {
@@ -18,40 +17,38 @@ body {
     --laranja: #AD1A1A;
     --marrom: #332424;
     --bordoescuro: #1F0000;
-
+    --vermelhoclaro: #621b1b;
+    --bege: #f8f1d4;
 } 
-
-/* .linha {
-    height: 3%;
-    width: 100%;
-    background-color: var(--bordo);
-} */
 
 .logo {
     display: flex;
-    /* margin-left: 1%; */
 
     text-align: center;
     margin-top: 0.5vh;
 
     font-size: larger;
     font-weight: 700;
-    /* flex-direction: column; */
 }
 
-.header {
+.header li{
+    list-style-type: none;
+}
+
+h1 {
+    font-size: 1.7rem;
+    margin: 18px 0 10px 0;
+    text-align: center;
+}
+
+.navbar {
     display: flex;
-    justify-content: space-around;
     flex-direction: row;
-    
-    height: 10vh;
-    width: 100%;
+    justify-content: space-around;
+    gap: 1vh;
     align-items: center;
-    
-    color: var(--branco);
-    background-color: var(--bordo);
-    
-    /* box-shadow: 2px 2px 5px black, -2px -2px 5px gray; */
+    text-align: center;
+
 }
 
 .header a {
@@ -60,15 +57,15 @@ body {
     margin-right: 5vh;
 }
 
-.navbar {
+.header {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
-    /* padding: 15%; */
-    gap: 1vh;
+    flex-direction: row;
+    height: 10vh;
+    width: 100%;
     align-items: center;
-    text-align: center;
-
+    color: var(--branco);
+    background-color: var(--bordo);
 }
 
 .main {
@@ -82,7 +79,6 @@ body {
 .main .titulo {
     display: flex;
     justify-content: center;
-    /* margin-left: 10%; */
     padding: 10vh 0 2vh 0;
     font-size: 45px;
     font-weight: bolder;
@@ -91,48 +87,11 @@ body {
 .main .subtitulo {
     display: flex;
     justify-content: center;
-    /* margin-right: 35%; */
     padding: 0 4vh; 
     position: relative;
     font-style: italic;
     font-size: 3.5vh;
     text-align: center;
-}
-
-.navbar .direcionamentos {
-    width: 40%;
-    height: 5%;
-    background-color: transparent;
-    border-radius: 30px;
-    padding: 0.5vh 2vh;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.navbar .inicio .direcionamentos {
-    font-weight: bolder;
-    width: 35%;
-    height: 3%;
-    background-color: transparent   ;
-    border-radius: 30px;
-    padding: 0.5vh 2vh;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.direcionamentos-sobre {
-    font-weight: bolder;
-    width: 300px;
-    height: 35px;
-    background-color: #380707;
-    border-color: #100d0d;
-    border: solid;
-    border-radius: 7px;
-    padding: 0.5vh 2vh;
-    text-decoration: none;
-    white-space: nowrap;
-    font-size: large;
-    color: var(--branco);
 }
 
 .sessao{
@@ -171,12 +130,8 @@ body {
     text-align: center;
     padding: 5vh 5vh 5vh 5vh; 
 
-    /* width: 45%;
-    height: 50%; */
-
     color: var(--vinho);
 
-    /* background-color: antiquewhite; */
 }
 
 .titulo-card {
@@ -185,8 +140,6 @@ body {
     height: 15%;
     justify-content: center;
     margin-left: 12vh;
-    /* margin-bottom: 20vh; */
-    
 
     text-align: center;
     align-items: center;
@@ -199,11 +152,6 @@ body {
 
     border-radius: 30px;
     border: #360000;
-
-    /* z-index: 100; */
-
-    /* text-decoration: none; */
-    /* white-space: nowrap; */
 }
 
 .card .missao {
@@ -216,8 +164,6 @@ body {
     font-weight: 600;
     
     margin-right: 20px;
-
-    /* padding: 0 0 0 15vh; */
 }
 
 .card .valores {
@@ -229,7 +175,6 @@ body {
     border-radius: 30px;
     font-weight: 600;
 
-    /* padding: 2px; */
 }
 
 .card .objetivo {
@@ -243,6 +188,22 @@ body {
 
     padding-left: 2px;
     padding-right: 2px;
+}
+
+
+.direcionamentos-sobre {
+    font-weight: bolder;
+    width: 300px;
+    height: 35px;
+    background-color: #380707;
+    border-color: #100d0d;
+    border: solid;
+    border-radius: 7px;
+    padding: 0.5vh 2vh;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: large;
+    color: var(--branco);
 }
 
 .body-musicas{
@@ -266,7 +227,6 @@ body {
     background-color: #eae7db;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
 
     font-size: 16px;
     font-weight: 500px;
@@ -285,7 +245,6 @@ body {
     height: 1250px;
 
     margin-left: 5%;
-    /* padding-top: 5%; */
     gap: 30px;
 
     border: solid 2px #1F0000;
@@ -301,7 +260,6 @@ body {
     height: 100%;
 
     margin-left: 10%;
-    /* padding-top: 5%; */
     gap: 30px;
 
     border: solid 2px #1F0000;
@@ -335,8 +293,6 @@ body {
 .musica {
     width: 350%;
     height: 400px;
-
-    /* margin-bottom: 10%; */
 }
 
 .sobre .titulo{
@@ -349,7 +305,6 @@ body {
 
 .contato {
     text-align: center;
-    /* background-color: #570808; */
     width:100%;
     height: max-content;
     color:#360000;
@@ -358,23 +313,17 @@ body {
 
 .titulo-footer {
     width: 100%;
-    /* background-color: #570808; */
     color:var(--branco);
     font-size: 5vh;
     font-weight: 700;
     text-align: center;
     justify-content: center;
-    /* margin-left: 5vh; */
 }
 .conteudo-footer {
-    
-    /* background-color: #570808; */
     display: flex;
-    /* flex-direction: column; */
     color: var(--branco);
     font-size: smaller;
     margin-left: 10vh;
     justify-content: center;
     text-align: center;
-    /* gap: 1vh; */
 }
